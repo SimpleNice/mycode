@@ -9,14 +9,14 @@ var name string = "落花浅忆" //（函数，常量，变量，类型，接口
 //组定要常量，全局变量，一般类型
 const (
 	Email string = "740008538@qq.com"
-	Phone string = "13510389936"
+	Phone string = "135******36"
 )
 
 //VAR组只能用在全局变量声明使用
 var (
 	students string
 	srunum   int
-	stuphone = "13510389936" //自动获取类型
+	stuphone = "135******36" //自动获取类型
 )
 
 //一般类型
