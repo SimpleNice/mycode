@@ -22,4 +22,5 @@ func main() {
 	// 类型转行
 	i = int(g)
 	fmt.Print(e, g, f, a, b, c, d, h, i, j, k)
+
 }
