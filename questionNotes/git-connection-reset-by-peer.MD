@@ -25,3 +25,7 @@ Host github.com
 ssh -T git@github.com 
 嗨用户名！您已成功验证，但GitHub不
 提供shell访问。
+
+
+
+Bad owner or permissions on /home/bin-l/.ssh/config  //$HOME/.ssh 权限设置775
