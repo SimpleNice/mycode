@@ -58,4 +58,8 @@ func main() {
 	fmt.Println(s1)
 	copy(s2, s1)
 	fmt.Println(s2)
+
+	s3 := s1     //完整拷贝
+	s4 := s1[:5] //完整拷贝[0:] [:5] [0:5]
+	fmt.Println(s3, s4)
 }
