@@ -11,7 +11,7 @@ func main() {
 	var a []int //slice 类型
 	fmt.Println(a)
 	b := [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9} //array
-	b1 := b[5:9]
+	b1 := b[5:9]                            //[5:9]只包含起始索引，不包含结尾索引
 	fmt.Println("B:", b, "\nB1:", b1)
 	c := make([]int, 3, 10) //比较正式的slice，类型，长度，初始容量
 	//容量小于长度会自动重新分配,容量可以不设置
