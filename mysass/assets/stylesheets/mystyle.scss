@@ -1,0 +1,243 @@
+$my-back-color:#5eafff;
+$my-fant-with-color:#e7f3f9;
+$my-fant-active-title-color:#698266;
+$qy-fant-lable-color:#b1b1b1;
+$qy-margin-top:50px;
+@mixin my-animation ($sizing,$time,$timein) {
+    -webkit-animation: $sizing $time $timein;
+    -moz-animation: $sizing $time $timein;
+    -o-animation: $sizing $time $timein;
+    animation: $sizing $time $timein;
+}
+@mixin my-box-shadow($px1,$px2,$px3,$color,$types:null,$px4:0px){
+    -webkit-box-shadow: $types $px1 $px2 $px3 $px4 $color;
+    -moz-box-shadow: $types $px1 $px2 $px3 $px4 $color;
+    box-shadow: $types $px1 $px2 $px3 $px4 $color;
+}
+@mixin position-top{
+    position: relative;
+    z-index: 1000;
+}
+.my-header {
+    margin-bottom: 0px;
+    border-bottom: 0px;
+    background-color: $my-back-color;
+    @include my-animation(bounce,1.5s,ease);
+    .nav li a,a{
+        color: $my-fant-with-color;
+        &:hover,&:focus{
+            color: darken($my-fant-with-color,10%);
+            background-color: darken($my-back-color,5%);
+            @include my-animation(my_tada,1s,forwards);
+            @include my-box-shadow(-10px,10px,15px,rgba(0, 127, 255, 0.5));
+        }
+    }
+}
+@media (max-width:768px){
+    .my-header {
+        .nav li a,a{
+            &:hover,&:focus{
+                @include my-animation(bounceIn,1s,ease);
+            }
+        }
+    }
+}
+.jumbotron{
+    //background-color: $my-back-color;
+    color: $my-fant-with-color;
+    position: relative;
+    overflow: hidden;
+}
+.jumbotron,#qy-content-list{
+    margin-top: $qy-margin-top;
+}
+.special-box{
+    float: left;
+    background-color:$my-back-color;
+    &.out{
+        @include my-animation(zoomOut,3s,forwards);
+    }
+    &.ins{
+        @include my-animation(zoomIn,2s,forwards);
+    }
+}
+.qy-special{
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    top: 0px;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    width: 100%;
+    height: 300px;
+}
+.carouselbox{
+    width: 100%;
+    background-color: $my-back-color;
+}
+.large-header{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+.conten-static-top{
+    position: relative;
+}
+.panel-default{
+    @include my-animation(fadeInLeft,1.5s,ease)
+}
+.jumbotron,.panel-body{
+    @include my-animation(fadeIn,3s,ease)
+}
+
+.qy-content{
+    padding: 20px;
+    @include my-box-shadow(0px, 2px, 6px, rgba(100, 100, 100, 0.3));
+}
+.panel-title {
+    a{
+       @include position-top;
+        color: $my-fant-active-title-color;
+        &:hover,&:focus{
+            color: darken($my-fant-active-title-color,20%);
+            text-decoration: none;
+        }
+    }
+    .qy-right-span{
+        float:right;
+        a{
+           color: $qy-fant-lable-color; 
+           &:hover,&:focus{
+               color: darken($qy-fant-lable-color,10%);
+               text-decoration: none;
+            }
+        }
+    }
+}
+.panel-body{
+    @include position-top;
+}
+.loding{
+    display: none;
+}
+.footer{
+    margin-top:50px ;
+    margin-bottom:0.5rem ;
+}
+.footer,.loding{
+    color:$qy-fant-lable-color;
+    text-align: center;
+    i{
+        margin-left: 0.5rem;
+    }
+}
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.22);
+}
+::-webkit-scrollbar-button,::-webkit-scrollbar-corner{
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(3, 130, 255, 0.25);
+}
+::-webkit-scrollbar-track{
+    @include my-box-shadow( 0 ,0 ,6px, rgba(0,0,0,0.3),inset);
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}
+ul{
+    list-style: none;
+}
+#schedule-box{
+    width: 100%;
+    margin: 0 auto;
+    padding: 35px 20px;
+    font-size: 13px;
+}
+.schedule-hd{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    span{
+        @include position-top;
+    }
+}
+.today{
+    flex: 1;
+    text-align: center;
+}
+.ul-box{
+    overflow: hidden;
+    padding-left: 0px;
+}
+.ul-box > li{
+    @include position-top;
+    float: left;
+    width: 14.28%;
+    text-align: center;
+    padding: 5px 0;
+}
+.other-month{
+    color: #999999;
+}
+.current-month{
+    color: #333333;
+}
+.today-style{
+    border-radius: 50%;
+    background: #58d321;
+}
+.arrow{
+    cursor: pointer;
+}
+.dayStyle{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+.current-month > .dayStyle:hover{
+    background: #00BDFF;
+    color: #ffffff;
+}
+.today-flag{
+    background: #00C2B1;
+    color: #fff;
+}
+.boxshaw{
+    box-shadow: 2px 2px 15px 2px #e3e3e3;
+}
+.selected-style {
+    background: #00BDFF;
+    color: #ffffff;
+}
+#h3Ele{
+    text-align: center;
+    padding: 10px;
+}
+#tagscloud{
+    width:100%;
+    height:260px;
+    position:relative;
+    font-size:14px;
+    color:#333;
+    margin-top: 20px;
+    @include position-top;
+    text-align:center;
+    @include my-box-shadow(2px,2px,15px,#e3e3e3,null,2px);
+    }
+#tagscloud a{position:absolute;top:0px;left:0px;color:$qy-fant-lable-color;font-family:Arial;text-decoration:none;}
+
+.visible-lg{
+    &.fadeInDown{
+        @include my-animation (fadeInDown,3s,ease);
+    }
+    &.fadeInUp{
+        @include my-animation (fadeInUp,3s,ease);
+    }
+}
