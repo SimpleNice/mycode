@@ -1,0 +1,119 @@
+$top-color:#42B983;
+$left-bgcolor:#313840;
+$left-fcolor:#23ad68;
+$rigth-top-bgcolor:#e2e2e2;
+$right-top-fcolor:#b5b5b5;
+@mixin qy-box-shadow($px1,$px2,$px3,$color,$types:null,$px4:0px){
+    -webkit-box-shadow: $types $px1 $px2 $px3 $px4 $color;
+    -moz-box-shadow: $types $px1 $px2 $px3 $px4 $color;
+    box-shadow: $types $px1 $px2 $px3 $px4 $color;
+}
+body{
+    font-family: FontAwesome;
+}
+.header{
+    width:100%;
+    height: 50px;
+    display: block;
+    color: $top-color;
+    @include qy-box-shadow(0px,0px,5px,rgba(0, 0,0, 0.5));
+}
+.left{
+    top: 0px;
+    bottom: 0px;
+    width: 300px;
+    position: fixed;
+    display: block;
+    z-index: 999;
+    background-color:$left-bgcolor ;
+    padding: 20px;
+    .left-top{
+        margin-top: 20px;
+        padding-bottom: 10px;
+        text-align: center;
+        border-bottom: 1px solid lighten($left-bgcolor,10%);
+        .img{
+            margin-bottom: 28px;
+            img{
+                width: 120px;
+                height: 120px;
+                border-radius: 120px;
+            }
+        }
+        .title{
+            margin-top: 10px;
+            text-align: left;
+            padding-left: 60px;
+            .stress{
+                color:$left-fcolor ;
+            }  
+            a{
+                color: darken($left-fcolor,10%);
+                font-size:24px;
+               margin-left: 20px; 
+                &:hover{
+                    color: darken($left-fcolor,20%);
+                }
+            } 
+            a.first{
+                margin-left: 0;
+            }  
+            .atui-badge{
+                vertical-align:baseline;
+                .atui-badge-count{
+                    background-color:darken($left-fcolor,5%);// #238a33;
+                    @include qy-box-shadow(0px,0px,5px,rgba(0, 0,0, 0.5));
+                }
+            }
+        }
+    }
+    .left-menu{
+        margin-top: 20px;
+        //重写atui颜色
+        .atui-menu{
+            background: inherit;
+            color: $left-fcolor;
+            .atui-menu-submenu-title,.atui-menu-item{
+                font-size: 14px;
+                &:hover{
+                    background-color: lighten($left-bgcolor,10%);
+                }
+            }
+            .atui-menu-item-selected{
+                color: $left-fcolor;
+                background-color:lighten($left-bgcolor,20%);
+                border-right:none;
+            }
+            &.atui-menu-inline,.atui-menu-item{
+                border-right:none;
+            }
+            a{
+                color: $left-fcolor;
+                &:focus, &:hover{
+                    color: $left-fcolor;
+                }
+            }
+        }
+    }
+}
+.right{
+    margin-left: 300px;
+    padding: 5px 5px 5px 15px;
+    .right-top{
+        border-radius: 2px;
+        padding: 3px 8px;
+        color: $right-top-fcolor;
+        margin-bottom: 10px;
+        font-size: 14px;
+        a{
+            color: $right-top-fcolor;
+        }
+        .last-title{
+            color: darken($right-top-fcolor,30%);
+        }
+        .symbol{
+            padding: 0 10px;
+            color: lighten($right-top-fcolor,10%);
+        }
+    }
+}
