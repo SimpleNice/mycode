@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>propsData option</title>
+</head>
+<body>
+    <h1>propsData option 全局扩展数据传第</h1>
+    <hr>
+   <header></header>
+   <style>
+    font{
+        color: #6699EE;
+    }
+   </style>
+    <script>
+        const header_1 = Vue.extend({
+            template:`<p>{{message}}---<font>{{lhqy}}</font></p>`,
+            data:function(){
+                return{
+                    message:'hellow word!'
+                }
+            },
+            props:['lhqy']
+        });
+        new header_1({propsData:{lhqy:'落花浅忆'}}).$mount('header');
+    </script>
+</body>
+</html>

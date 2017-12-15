@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>watch 选项</title>
+</head>
+<body>
+    <h1>watch 选项监控数据</h1>
+    <hr>
+    <div id="app">
+       <p>今日温度:{{wendu}}°</p>
+       <p>穿越建议:<font>{{chuanyi}}</font></p>
+       <p><button @click="add()">增加温度</button><button @click="del()">降低温度</button></p>
+    </div>
+    <script>
+        const chuanyiArr=['T桖短袖','夹克长裙','棉衣羽绒服'];
+        let vm= new Vue({
+            el:"#app",
+            data:{
+                wendu:0,
+                chuanyi:'夹克长裙'
+            },
+            methods:{
+                add:function(){
+                    this.wendu+=5;
+                },
+                del:function(){
+                    this.wendu-=5;
+                }
+            },
+            // watch:{
+            //     wendu:function(newVal,oldVal){
+            //        if(this.wendu>=26){
+            //            this.chuanyi="T桖短袖";
+            //        }else if(10<this.wendu && this.wendu <26){
+            //            this.chuanyi="夹克长裙";
+            //        }else{
+            //         this.chuanyi="棉衣羽绒服";
+            //        }
+            //     }
+            // }
+        })
+        vm.$watch('wendu',function(newVal,oldVal){
+            if(this.wendu>=26){
+                this.chuanyi="T桖短袖";
+            }else if(10<this.wendu && this.wendu <26){
+                this.chuanyi="夹克长裙";
+            }else{
+            this.chuanyi="棉衣羽绒服";
+            }
+        })
+    </script>
+</body>
+</html>

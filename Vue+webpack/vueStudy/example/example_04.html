@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>内置组件</title>
+</head>
+<body>
+    <h1>内置组件</h1>
+    <hr>
+        <ul>
+                <li style="width:100%;"><b>slot :</b> 是标签的内容扩展，也就是说你用slot就可以在自定义组件时传递给组件内容，组件接收内容并输出</li>
+            </ul>   
+        <hr>
+    <div id="app">
+        <lhqy>
+            <span slot="names">{{lhqyDate.names}}</span>
+            <span slot="year">{{lhqyDate.year}}</span>
+            <span slot="skill">{{lhqyDate.skill}}</span>
+        </lhqy>
+        <lhqy2>
+            <span slot="names">{{lhqyDate.names}}</span>
+            <span slot="year">{{lhqyDate.year}}</span>
+            <span slot="skill">{{lhqyDate.skill}}</span>
+        </lhqy2>
+    </div>
+    <template id="templs">
+        <div >
+            <p style="color:blueviolet;">
+                <slot name="names"></slot> -- <slot name="year"></slot> -- <slot name="skill"></slot>
+            </p>
+        </div>
+    </template>
+    <script>
+        const lhqyTempl={
+            template:`<p>
+                    <slot name="names"></slot>-- <slot name="year"></slot> -- <slot name="skill"></slot>
+                    </p>`
+        }
+        const lhqyTempl2={
+            template:"#templs"
+        }
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                lhqyDate:{
+                    names:'落花浅忆',
+                    year:'2017',
+                    skill:'web前端'
+                }
+            },
+            components:{
+                "lhqy":lhqyTempl,
+                "lhqy2":lhqyTempl2
+            },
+           methods:{
+              
+           }
+        })
+    </script>
+</body>
+</html>

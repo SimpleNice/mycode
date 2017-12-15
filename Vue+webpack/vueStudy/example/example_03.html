@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>实例事件</title>
+</head>
+<body>
+    <h1>实例事件</h1>
+    <hr>
+        <ul>
+                <li><b>$on() :</b> 在构造器外部添加事件</li>
+                <li><b>$once() :</b> 执行一次的事件</li>
+                <li><b>$off() :</b>关闭事件</li>
+                <li><b>$emit() :</b>触发当前实例上的事件</li>
+            </ul>   
+        <hr>
+    <div id="app">
+        {{num}}
+        <p>
+            <button @click="add">Add</button>
+        </p>
+    </div>
+    <hr>
+    <p>
+        <button onclick="reduce()">Reduce</button>
+        <button onclick="addOnce()">addOnce</button>
+        <button onclick="off()">off</button>
+    </p>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+           methods:{
+               add:function(){
+                   this.num++;
+               }
+           }
+        })
+        vm.$on("reduce",function(){
+            console.log('执行reduce方法');
+            this.num--;
+        })
+        vm.$once("addOnce",function(){
+            console.log('我只执行一次');
+            this.num+=9;
+        })
+        function reduce(){
+            vm.$emit('reduce');
+        }
+        function addOnce(){
+            vm.$emit('addOnce');
+        }
+        function off(){
+            vm.$off('reduce');
+        }
+    </script>
+</body>
+</html>

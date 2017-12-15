@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>Vue.set实例</title>
+</head>
+<body>
+    <h1>Vue.set 全局操作</h1>
+    <hr>
+    <div id="app">
+        {{count}}
+        <ul>
+            <li v-for="item in goods">{{item}}</li>
+        </ul>
+    </div>
+    <p><button onclick="add()">Add</button></p>
+    <script>
+        var outDate={
+            count:1,
+            goods:['cat','fish','dog']
+        }
+        var vm= new Vue({
+            el:"#app",
+            data:outDate
+        })
+        function add(){
+            Vue.set(outDate,'count',2);
+            Vue.set(vm.goods,1,'bird');
+            //vm.count++;
+            //outDate.count++;
+        }
+    </script>
+</body>
+</html>

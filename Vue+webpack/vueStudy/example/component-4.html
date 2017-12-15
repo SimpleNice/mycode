@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>component</title>
+</head>
+<body>
+    <h1>component-3 标签</h1>
+    <hr>
+    <div id="app">
+        <component :is="who"></component>
+        <p><button @click="checkedComponent">更换组件</button></p>
+    </div>
+    <style>
+        button{
+            color: #e9e9e9;
+            border: none;
+            background-color: #1b77f0;
+            padding: 5px 10px;
+            border-radius:3px; 
+            outline: none;
+        }
+    </style>
+    <script>
+        const componentA={
+            template:`<h3 style="color:#6699FF;"> 我是conponentA</h3>`,
+        }
+        const componentB={
+            template:`<h3 style="color:#0022EE;"> 我是conponentB</h3>`,
+        }
+        const componentC={
+            template:`<h3 style="color:#5500DD;"> 我是conponentC</h3>`,
+        }
+        let vm= new Vue({
+            el:"#app",
+            data:{
+                who:'componentA'
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC
+            },
+            methods:{
+                checkedComponent:function(){
+                   switch (this.who) {
+                        case 'componentA':
+                           this.who='componentB';
+                           break;
+                        case 'componentB':
+                            this.who='componentC';
+                            break;
+                        case 'componentC':
+                           this.who='componentA';
+                           break;
+                       default:
+                           break;
+                   }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

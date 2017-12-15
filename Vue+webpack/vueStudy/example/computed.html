@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>computed Option</title>
+</head>
+<body>
+    <h1>computed Option  计算选项</h1>
+    <hr>
+   <header></header>
+   <style>
+    font{
+        color: rgb(247, 23, 98);
+    }
+    ul{
+        padding: 0;
+    }
+    li{
+        color: #006699;
+        list-style: none;
+        border-bottom: 1px double #887766;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+    }
+   </style>
+    <script>
+        const newList=[
+            {title:'似水流年',time:'2017-05-26'},
+            {title:'落花浅忆',time:'2017-04-06'},
+            {title:'竹杖芒鞋',time:'2017-07-30'},
+            {title:'二月柳絮',time:'2017-06-01'},
+            {title:'洛城飞花',time:'2017-09-22'},
+            {title:'天府牡丹',time:'2017-01-18'},
+            {title:'曲水流觞',time:'2017-06-23'},
+            {title:'落雪染尘',time:'2017-03-21'}
+        ]
+        const header_1 = Vue.extend({
+            template:`<p>
+                        <font>{{newPrice}}</font>
+                        <ul>
+                            <li v-for="item in newList">{{item.title}} - {{item.time}}</li>
+                        </ul>
+                    </p>`,
+            data:function(){
+                return{
+                    price:100,
+                    list:newList
+                }
+            },
+            computed:{
+                newPrice:function(){
+                    return this.price='￥'+this.price+'元';
+                },
+                newList:function(){
+                    return this.list.reverse(); //reverse方法用于颠倒数组中元素的顺序。
+                }
+            }
+        });
+        new header_1().$mount('header');
+    </script>
+</body>
+</html>

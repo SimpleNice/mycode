@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>v-text 实例</title>
+</head>
+<body>
+    <h1>v-text & v-html 实例</h1>
+    <hr>
+    <ul>
+        <li><b>v-text</b>: 更新元素的 textContent</li>
+        <li><b>v-html</b>:更新元素的 innerHTML</li>
+    </ul>
+    <hr>
+    <div id="app">
+        {{message}} <br>
+        <span v-text="message"></span> <br>
+        {{htmls}} <br>
+        <span v-text="htmls"></span> <br>
+        <span v-html="htmls"></span> <br>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                message:"Hello Word!",
+                htmls:"<h1>Hello Word!</h1>"
+            }
+        })
+    </script>
+</body>
+</html>

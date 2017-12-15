@@ -1,0 +1,32 @@
+body { font-family: FontAwesome; }
+
+.header { width: 100%; height: 50px; display: block; color: #42B983; -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
+
+.left { top: 0px; bottom: 0px; width: 300px; position: fixed; display: block; z-index: 999; background-color: #313840; padding: 20px; }
+.left .left-top { margin-top: 20px; padding-bottom: 10px; text-align: center; border-bottom: 1px solid #47515d; }
+.left .left-top .img { margin-bottom: 28px; }
+.left .left-top .img img { width: 120px; height: 120px; border-radius: 120px; }
+.left .left-top .title { margin-top: 10px; text-align: left; padding-left: 60px; }
+.left .left-top .title .stress { color: #23ad68; }
+.left .left-top .title a { color: #1a834f; font-size: 24px; margin-left: 20px; vertical-align: top; }
+.left .left-top .title a:hover { color: #125835; }
+.left .left-top .title a.first, .left .left-top .title a.n3-btn { margin-left: 0; }
+.left .left-top .title a.last { margin-left: 10px; }
+.left .left-top .title .n3-btn-default { padding: 0; background-color: inherit; border: 0; }
+.left .left-top .title .n3-btn-default .n3-badge { top: -10px; left: -8px; background-color: #1f985b; -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); }
+.left .left-menu { margin-top: 20px; }
+.left .left-menu .atui-menu { background: inherit; color: #23ad68; }
+.left .left-menu .atui-menu .atui-menu-submenu-title, .left .left-menu .atui-menu .atui-menu-item { font-size: 14px; }
+.left .left-menu .atui-menu .atui-menu-submenu-title:hover, .left .left-menu .atui-menu .atui-menu-item:hover { background-color: #47515d; }
+.left .left-menu .atui-menu .atui-menu-item-selected { color: #23ad68; background-color: #5d6b7a; border-right: none; }
+.left .left-menu .atui-menu.atui-menu-inline, .left .left-menu .atui-menu .atui-menu-item { border-right: none; }
+.left .left-menu .atui-menu a { color: #23ad68; }
+.left .left-menu .atui-menu a:focus, .left .left-menu .atui-menu a:hover { color: #23ad68; }
+
+.right { margin-left: 300px; padding: 5px 5px 5px 15px; }
+.right .right-top { border-radius: 2px; padding: 3px 8px; color: #b5b5b5; margin-bottom: 10px; font-size: 14px; }
+.right .right-top a { color: #b5b5b5; }
+.right .right-top .last-title { color: dimgray; }
+.right .right-top .symbol { padding: 0 10px; color: #cfcfcf; }
+
+/*# sourceMappingURL=public.css.map */

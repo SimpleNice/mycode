@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>component</title>
+</head>
+<body>
+    <h1>component-2 props</h1>
+    <hr>
+    <div id="app">
+        <panda author="落花浅忆" form-here="中国" :mess="message"></panda>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                message:"流水落花一场空"
+            },
+            components:{
+                "panda":{
+                    template:`<h3 style="color:#9999FF;"> Panda 是 {{formHere}}, {{author}}({{mess}})  写的</h3>`,
+                    props:['author','formHere','mess']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

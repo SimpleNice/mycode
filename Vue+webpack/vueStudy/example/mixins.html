@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>mixins 实例</title>
+</head>
+<body>
+    <h1>mixins 混入选项操作</h1>
+    <hr>
+    <div id="app">
+        {{num}}
+        <p><font> {{message}}</font></p>
+        <p>
+            <button @click="add()">Add</button>
+        </p>    
+    </div>
+    <script>
+        const addConsole={
+            updated:function(){
+                this.message='数据增加了现在是:'+this.num;
+                console.log('数据增加了现在是:'+this.num);
+            },
+        }
+        Vue.mixin({
+            updated:function(){
+                console.log('我是全局混入:'+this.num);
+            }
+        })
+        let vm= new Vue({
+            el:"#app",
+            data:{
+                num:1,
+                message:'',
+            },
+            methods:{
+                add:function(){
+                   this.num++;
+                }
+            },
+            updated:function(){
+                console.log('我是原生混入:'+this.num);
+            },
+            mixins:[addConsole]
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>v-on 实例</title>
+</head>
+<body>
+    <h1>v-on 实例</h1>
+    <hr>
+    <ul>
+        <li><b>v-on</b>: 绑定事件监听.</li>
+        <li><b>methods</b>: el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子.</li>
+        <li><b>v-model</b>:表单控件绑定,在表单控件或者组件上创建双向绑定.</li>
+    </ul>
+    <hr>
+    <div id="app">
+        <b>本场比赛得分:</b>{{fraction}}
+        <p>
+            <button @click="add">加分</button>
+            <button v-on:click="del">减分</button>
+            <input type="text" @keyup.enter="onEnter" v-model="fraction2">
+        </p>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                fraction:0,
+                fraction2:1,
+            },
+            methods:{
+                add:function(){
+                    this.fraction++;
+                },
+                del:function(){
+                    this.fraction--;    
+                },
+                onEnter:function(){
+                    this.fraction=this.fraction+parseInt(this.fraction2);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

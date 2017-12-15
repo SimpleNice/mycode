@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>component</title>
+</head>
+<body>
+    <h1>component-3 父子组件</h1>
+    <hr>
+    <div id="app">
+        <panda></panda>
+    </div>
+    <script>
+        const pandaChild={
+            template:`<h3 style="color:#6699FF;border:1px dotted #7700ff;"> 我是子组件  是 {{formHere}}.{{author}}  写的</h3>`,
+            props:['author','formHere']
+        }
+        const panda={
+            template:`<div style="border:1px solid #9900ff;">
+                        <h5 style="color:#668899;">我是父组件</h5>
+                        <panda-child author="落花浅忆" form-here="中国"></panda-child>
+                    </div>`,
+            components:{
+                "pandaChild":pandaChild
+            }
+        }
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                message:"流水落花一场空"
+            },
+            components:{
+                "panda":panda
+            }
+        })
+    </script>
+</body>
+</html>

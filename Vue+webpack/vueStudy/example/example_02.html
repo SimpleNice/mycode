@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>实例方法</title>
+</head>
+<body>
+    <h1>实例方法</h1>
+    <hr>
+        <ul>
+                <li><b>$mount() :</b> 用来挂载我们的扩展的</li>
+                <li><b>$destroy() :</b> 卸载方法,销毁实例</li>
+                <li><b>$forceUpdate() :</b>更新方法</li>
+                <li><b>$nextTick() :</b>数据修改方法</li>
+            </ul>   
+        <hr>
+    <div id="app">
+        
+    </div>
+    <p>
+        <button onclick="reload()">更新</button>
+        <button onclick="tick()">更改数据</button>
+        <button onclick="vm.$destroy()">卸载</button>
+    </p>
+    <script>
+        const lhqy = Vue.extend({
+            template:`<p>{{message}}</p>`,
+            data:function(){
+                return {
+                    message:'你好,落花浅忆!'
+                }
+            },
+            mounted:function(){
+                console.log('mounted 被创建');
+            },
+            destroyed:function(){
+                console.log('destroy 销毁实例');
+            },
+            updated:function(){
+                console.log('updated 更新实例');
+            }
+        })
+        let vm = new lhqy().$mount("#app");
+        function reload(){
+            vm.$forceUpdate();
+        }
+        function tick(){
+            vm.message='修改message数据';
+            vm.$nextTick(function (){
+                console.log('updated 更新后调用了$nextTick');
+            })
+        }
+    </script>
+</body>
+</html>

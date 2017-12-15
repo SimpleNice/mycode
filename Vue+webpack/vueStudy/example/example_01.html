@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Vue && jquery</title>
+</head>
+<body>
+    <h1>Vue && jquery</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+    </div>
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                message:"Hello Word!"
+            },
+            mounted:function(){
+                $("#app").html('我是jquery');
+            },
+            methods:{
+                add:function(){
+                    console.log("调用构造器内部的Add方法")
+                }
+            }
+        })
+        vm.add();
+    </script>
+</body>
+</html>

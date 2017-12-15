@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../assets/js/vue.js"></script>
+    <title>v-model</title>
+</head>
+<body>
+    <h1>v-model 实例</h1>
+    <hr>
+    <ul>
+        <li><b>v-model</b>: 双向数据绑定。</li>
+        <li><b>v-model.lazy</b>: 懒加载.</li>
+        <li><b>v-model.number</b>: 内容必须是数字.</li>
+        <li><b>v-model.trim</b>: 去空格</li>
+    </ul>
+    <hr>
+    <div id="app">
+        <h3>文本框</h3>
+            <hr>
+        <p>输入的内容:{{message}}</p>
+        <p>
+            <input type="text" v-model="message">
+        </p>
+        <p>输入的内容<b>lazy:</b>{{message1}}</p>
+        <p>
+            <input type="text" v-model.lazy="message1">
+        </p>
+        <p>输入的内容<b>number:</b>{{message2}}</p>
+        <p>
+            <input type="text" v-model.number="message2">
+        </p>
+        <p>输入的内容<b>trim:</b>{{message3}}</p>
+        <p>
+            <input type="text" v-model.trim="message3">
+        </p>
+        <h3>文本域</h3>
+        <hr>
+        <p>输入的内容:{{message4}}</p>
+        <p>
+            <textarea type="text" v-model="message4"></textarea>
+        </p>
+        <h3>多选框</h3>
+        <hr>
+        <p>
+           <input type="checkbox" name="" id="isTrue" v-model="isTrue"><label for="isTrue">{{isTrue}}</label>
+        </p>
+        <p>
+            <input type="checkbox" id="jhon" v-model="names" value="jhon">
+            <label for="jhon">jhon</label>
+            <input type="checkbox" id="libai" v-model="names" value="李白">
+            <label for="libai">李白</label>
+            <input type="checkbox" id="liqingzhao" v-model="names" value="李清照">
+            <label for="liqingzhao">李清照</label>
+            <p>
+                你选中的名字:{{names}}
+            </p>
+        </p>
+        <h3>单选框</h3>
+        <hr>
+            <input type="radio" id="nan" v-model="sex" value="男" name="sex">
+            <label for="nan">男</label>
+            <input type="radio" id="nv" v-model="sex" value="女"  name="sex">
+            <label for="nv">女</label>
+            <p>
+                你选则的性别:{{sex}}
+            </p>
+        </p>
+    </div>
+    <script>
+        var vm= new Vue({
+            el:"#app",
+            data:{
+                message:"",
+                message1:"",
+                message2:"",
+                message3:"",
+                message4:"",
+                isTrue:false,
+                names:[],
+                sex:'',
+            }
+        })
+    </script>
+</body>
+</html>
