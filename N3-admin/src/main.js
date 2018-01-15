@@ -5,8 +5,9 @@ import App from './App'
 import router from './router'
 import N3Components from 'N3-components'
 import 'N3-components/dist/index.min.css'
-import '@/assets/css/public.css'
 import 'font-awesome/css/font-awesome.css'
+import axios from 'axios'
+Vue.prototype.$http = axios
 
 // install N3
 Vue.use(N3Components)

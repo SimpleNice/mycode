@@ -3,6 +3,10 @@ $left-bgcolor:#313840;
 $left-fcolor:#23ad68;
 $rigth-top-bgcolor:#e2e2e2;
 $right-top-fcolor:#b5b5b5;
+$title-color:#616161;
+$border-color:#e2e2e2;
+$dange-color:#f35b5b;
+$enabel-color:#0498ab;
 @mixin qy-box-shadow($px1,$px2,$px3,$color,$types:null,$px4:0px){
     -webkit-box-shadow: $types $px1 $px2 $px3 $px4 $color;
     -moz-box-shadow: $types $px1 $px2 $px3 $px4 $color;
@@ -106,22 +110,64 @@ body{
 }
 .right{
     margin-left: 300px;
-    padding: 5px 5px 5px 15px;
+    padding: 5px 10px;
+    border-left: 10px solid $rigth-top-bgcolor;
     .right-top{
         border-radius: 2px;
-        padding: 3px 8px;
         color: $right-top-fcolor;
-        margin-bottom: 10px;
         font-size: 14px;
-        a{
-            color: $right-top-fcolor;
-        }
-        .last-title{
-            color: darken($right-top-fcolor,30%);
-        }
-        .symbol{
-            padding: 0 10px;
-            color: lighten($right-top-fcolor,10%);
-        }
+        height: 40px;
+        line-height: 40px;
+        border-bottom:1px solid $border-color;
     }
+    .router-label{
+        padding: 0;
+    }
+    .router-label a{
+        color: inherit;
+    }
+    .router-name{
+        color: $title-color;
+    }
+    .content{
+        margin-top: 20px;
+    }
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.n3-data-table{
+    position: relative;
+}
+.span_oper{
+    margin-left: 5px;
+}
+.span_oper:first-child{
+    margin-left: 0px;
+    margin-right: 5px;
+}
+.span_oper:hover{
+    text-shadow: 1px 1px 2px $title-color ;
+    cursor: pointer;
+}
+.edit{
+    color: $top-color;
+}
+.dis{
+    color: $dange-color;
+}
+.enable{
+    color: $enabel-color;
+}
+.zhezhao{
+    top: 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.hide{
+    display: none;
 }

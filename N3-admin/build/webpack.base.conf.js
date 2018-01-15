@@ -40,6 +40,11 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
+        test: /\.(scss|sass)$/,
+        loaders: ["style", "css", "sass"],
+        include: [resolve('src'), resolve('test')]
+      },
+     {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {

@@ -44,7 +44,7 @@ for (let i = 0; i < 46; i++) {
 const pagination = {
   total: data.length,
   pageSize: 10,
-  currPage: 1
+  currPage: 1,
 }
 
 // 配置选择数据的选项

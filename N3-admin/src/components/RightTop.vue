@@ -1,33 +1,48 @@
 <template>
-	<div class="right-top">
-		<span v-for="(list,index) in lists" v-if="index > 0 && index < lists.length-1">
-			<span class="symbol">{{symbol}}</span> <a :href="list.href" >{{list.name}}</a>
-		</span>
-		<span v-else-if="index == 0">
-			{{list.name}}
-		</span>
-		<span v-else-if="index+1 == lists.length">
-			<span class="symbol">{{symbol}}</span><span class="last-title">{{list.name}}</span>
-		</span>
-	</div>
+	<section class="right-top">
+    <h4 class="router-name fl">{{ label }}</h4>
+		<n3-breadcrumb class="fr router-label">
+			<n3-breadcrumb-item  v-for="(item,index) in list" :key="item.id" :active="index == list.length-1">
+        <router-link :to="item.path">
+          {{item.meta && item.meta.label || item.name}}
+        </router-link>
+      </n3-breadcrumb-item>
+		</n3-breadcrumb>
+	</section>
 </template>
 
 <script>
-	export default{
-		name:"RightTop",
-		data(){
-			return {
-				lists:[
-					{name:"用户管理",href:""},
-					{name:"用户列表",href:""},
-					{name:"用户列表",href:""},
-					{name:"用户列表",href:""}
-				],
-				symbol:'/'
-			}
-		},
-	}
+import routes from "../router/routes";
+export default {
+  name: "RightTop",
+  data () {
+    return {
+      list: []
+    };
+  },
+  computed: {
+    label:function(){
+      return this.$route.meta && this.$route.meta.label || this.$route.name
+    }
+  },
+  methods: {
+    getList () {
+      this.list = this.$route.matched;
+    }
+  },
+  watch: {
+    '$route'(to, from){
+      this.getList()
+    }
+  },
+  created () {
+    this.getList()
+  }
+};
 </script>
 
 <style>
+.n3-breadcrumb .n3-breadcrumb-active a {
+    color: #41cac0;
+}
 </style>

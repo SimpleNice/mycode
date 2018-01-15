@@ -1,24 +1,17 @@
 <template>
-  <div id="app">
-  	<!-- <top-menu></top-menu>-->
-  	<left-menu></left-menu>
+  <div id="app">	
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-	//import TopMenu from "@/components/TopMenu"
-	import LeftMenu from "@/components/LeftMenu"
+
 	export default {
-	  name: 'app' ,
-	  components:{
-	  	//TopMenu,
-	  	LeftMenu
-	  },
-	  methods:{
-	  	onClick(){
-	  		console.log(1);
-	  	}
-	  }
+		name: 'app' 
 	}
 </script>
+<style lang="scss">
+	@import "./src/assets/sass/public.scss";
+</style>
+
+
