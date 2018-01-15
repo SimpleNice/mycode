@@ -1,8 +1,8 @@
-# yes
+# 基于N3-components 组件库设计的系统后台管理系统
 
 > N3 VUE组件库
 
-## Build Setup
+## 使用方法
 
 ``` bash
 # install dependencies
@@ -18,4 +18,4 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+ [N3-components](https://github.com/N3-components/N3-components/blob/master/README-zh.md)组件主页
