@@ -3,9 +3,12 @@
     <h4 class="router-name fl">{{ label }}</h4>
 		<n3-breadcrumb class="fr router-label">
 			<n3-breadcrumb-item  v-for="(item,index) in list" :key="item.id" :active="index == list.length-1">
-        <router-link :to="item.path">
+        <router-link :to="item.path" v-if="item.name!=='System'">
           {{item.meta && item.meta.label || item.name}}
         </router-link>
+        <label  v-else>
+          {{item.meta && item.meta.label || item.name}}
+        </label>
       </n3-breadcrumb-item>
 		</n3-breadcrumb>
 	</section>

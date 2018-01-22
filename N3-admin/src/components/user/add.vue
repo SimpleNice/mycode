@@ -257,9 +257,8 @@ export default {
       }
     },
     submit() {
-      console.log(this.model.address);
       this.$refs.form.validateFields(result => {
-        //console.log(result);
+          this.loadingBtn=result.isvalid
       });
     },
     sliders(val) {
@@ -267,16 +266,15 @@ export default {
     }
   },
   created() {
-    console.log(this.$route.params.id);
     if (this.$route.params.id !== undefined) {
       this.reload();
     }
   },
   watch: {
     "model.age"() {
-      this.model.age = parseInt(this.model.age);
+      this.model.age =this.model.age ===''?this.model.age = 1 : parseInt(this.model.age)
       if (this.model.age > 100 || this.model.age < 1) {
-        this.model.age = 1;
+        this.model.age = 1
       }
     }
   }

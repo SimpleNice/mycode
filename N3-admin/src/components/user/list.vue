@@ -29,7 +29,13 @@ export default {
         {
           title: "昵称",
           width: "16%",
-          dataIndex: "name"
+          dataIndex: "name",
+          render: (text,record)=>{
+            return `<router-link to="detail/${record.id}">
+                      <span  class="span_oper select" title="点击查看用户详细信息">${text}</span>
+                    </router-link>
+            `
+          }
         },
         {
           title: "性别",
@@ -248,11 +254,16 @@ export default {
       searchKey: {
         queryResult: "",
         filter: ""
-      }
+      },
+      //searchChanged:false
     };
   },
   methods: {
     searchList() {
+      // if (this.searchChanged) {
+      //     this.pagination.current = 1
+      //     this.searchChanged = false
+      //   }
       let params = Object.assign({}, this.searchKey, {
         page: this.pagination.current
       });
@@ -313,7 +324,7 @@ export default {
           placement: "top-right",
           duration: 3000,
           width: "240px" // 内容不确定，建议设置width
-        });
+        })
       })
       .catch(error => {
         this.loading = false;
@@ -323,8 +334,8 @@ export default {
           placement: "top-right",
           duration: 3000,
           width: "240px" // 内容不确定，建议设置width
-        });
-      });
+        })
+      })
     }
   }
 };
