@@ -6,3 +6,8 @@
 * 新增 `友情链接` 页面
 * 用户管理模块修改更新
 * 安装 `vue-html5-editor` 编辑器插件
+
+## 2018年1月23日 11:02:56
+
+* 新增`社区`模块文件夹`community`
+* 社区文件:`add.vue` 新增话题  `list.vue` 话题列表 `circle.vue` 圈子列表 `detail.vue` 话题详细信息 `site` 社区设置
