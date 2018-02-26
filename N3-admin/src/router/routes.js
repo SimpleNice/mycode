@@ -10,6 +10,7 @@ import Login from '@/views/login'
 import About from '@/views/about'
 import AboutList from '@/components/about/list'
 import AboutAdd from '@/components/about/add'
+import CommunityList from '@/components/community/list'
 import friendLinkList from '@/components/system/friendlink/list'
 
 
@@ -89,6 +90,23 @@ const routers=[
         }
       }
     ]
+  },{
+    path: '/community',
+    name: 'community',
+    component:User,
+    show:true,
+    meta:{
+      label: '社区管理'
+    },
+    children:[{ 
+      path: '/community/list',
+      name: 'communityList',
+      component: CommunityList,
+      show:true,
+      meta:{
+        label: '话题列表'
+      }
+    }]
   },
   {
     path: '/article',

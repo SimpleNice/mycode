@@ -8,6 +8,7 @@ $border-color:#e2e2e2;
 $dange-color:#f35b5b;
 $enabel-color:#0498ab;
 $font-title-size:16px;
+$text-tootip-bg:#66aaf1;
 @mixin qy-box-shadow($px1,$px2,$px3,$color,$types:null,$px4:0px){
     -webkit-box-shadow: $types $px1 $px2 $px3 $px4 $color;
     -moz-box-shadow: $types $px1 $px2 $px3 $px4 $color;
@@ -26,7 +27,7 @@ body{
 .left{
     top: 0px;
     bottom: 0px;
-    width: 300px;
+    width: 240px;
     position: fixed;
     display: block;
     z-index: 999;
@@ -111,7 +112,7 @@ body{
     }
 }
 .right{
-    margin-left: 300px;
+    margin-left: 240px;
     padding: 5px 10px;
     border-left: 10px solid $rigth-top-bgcolor;
     position: relative;
@@ -179,6 +180,10 @@ body{
 }
 .item-search{
     padding: 10px;
+    .item-search-title{
+        text-align: right;
+        width: 80px;
+    }
 }
 .item-rigth{
     float: right;
@@ -186,6 +191,10 @@ body{
 .item-padding{
     padding: 10px;
     padding-top:30px; 
+}
+.item-vertical{
+    vertical-align: baseline;
+    margin-left: 20px;
 }
 .editor-heigth{
     height: 500px;
@@ -231,6 +240,19 @@ h5{
 }
 .minwidth-show{
     display: none;
+}
+.text-tooltip{
+    .n3-tooltip-inner{
+        background-color: $text-tootip-bg;
+    }
+    .n3-tooltip-arrow{
+        border-top-color: $text-tootip-bg;
+    }
+}
+.table-time{
+    font-size: 11px;
+    color: $right-top-fcolor;
+    vertical-align: bottom;
 }
 @media screen and (max-width: 1279px){
     .list_left{

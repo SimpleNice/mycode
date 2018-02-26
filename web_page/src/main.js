@@ -7,15 +7,16 @@ import N3Components from 'N3-components'
 import 'N3-components/dist/index.min.css'
 import 'font-awesome/css/font-awesome.css'
 import axios from 'axios'
-Vue.prototype.$http = axios
-// install N3
 Vue.use(N3Components)
-Vue.config.productionTip = false
 
+Vue.use(N3Components, 'zh')
+
+Vue.config.productionTip = false
+Vue.prototype.$http=axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App }
+  components: { App },
+  template: '<App/>'
 })

@@ -1,0 +1,66 @@
+@import './public';
+.btn{
+    height: 33px;
+    padding: 0 30px;
+    border-radius: 3px;
+    line-height: 33px;
+    display: inline-block;
+}
+.general_btn{
+    background-color: #fff;
+    @include btn-border($all-color);
+    color: $all-color;
+}
+.general_btn:hover{
+    background-color:lighten($all-color,30%)
+}
+.mark_btn{
+    border: 0px;
+    background-color: $main-color;
+    @include btn-border($main-color);
+    color: #fff;
+}
+.mark_btn:hover,a.mark_btn:hover{
+    background-color: darken($main-color, 10%);
+    color: #fff;
+    font-weight: 500;
+}
+.text{
+    color: $all-color;
+    font-size: 14px;
+    a{
+        margin: 0 10px;
+    }
+}
+.nobold{
+    font-weight: 500;
+}
+.text_1{
+    color: darken($all-color,10%);
+}
+.mark_a{
+    color: $mark-color;
+}
+.sign{
+    color: $main-color;
+}
+a.sign:hover{
+    color: darken($main-color, 10%);
+}
+.mark_a:hover{
+    color: darken($mark-color, 10%);
+}
+.icon{
+    color: darken($all-color, 20%);
+    margin-right: 10px;
+}
+.icon_active{
+    transform:rotate(-90deg);
+    -ms-transform:rotate(-90deg); 	
+    -moz-transform:rotate(-90deg); 	
+    -webkit-transform:rotate(-90deg); 
+    -o-transform:rotate(-90deg); 
+}
+.show{
+    display: block;
+}
