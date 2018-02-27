@@ -48,7 +48,7 @@
 </script>
 <style scope>
     .search{    
-        background-color: #bfe5fd;
+        background-color: #dcedf9;
         width: 100%;
         display: block;
         margin: 0 auto;

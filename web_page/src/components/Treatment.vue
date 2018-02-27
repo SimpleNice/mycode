@@ -1,8 +1,15 @@
 <template>
     <section class="content">
         <treat-filter :list="list" @change="changeSick" @inputchange="inputchange"/>
-        <section class="content_text">
-            
+        <section class="content_text box_show">
+            <n3-tabs @change="change" :value="0">
+                <n3-tab header="搜索">
+                    <treat-search></treat-search>
+                </n3-tab>
+                <n3-tab header="浏览列表">
+                    <treat-browse></treat-browse>
+                </n3-tab>
+            </n3-tabs>
         </section>
     </section>
 </template>
