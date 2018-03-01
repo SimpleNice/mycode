@@ -39,7 +39,7 @@
                 this.$emit('change',val)
             },
             getResult(val){
-                this.$emit('inputChange',val)
+                this.$emit('inputchange',val)
             },
             getValue(val){
                 console.log(val)
