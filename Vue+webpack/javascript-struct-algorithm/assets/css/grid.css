@@ -1,0 +1,14 @@
+#grid{
+    display: grid;
+    display: -ms-grid;
+    /* grid-template-rows: 50px 100px; */
+    grid-template-rows: minmax(20px, auto);
+    grid-template-columns: repeat(3,100px);
+    grid-gap: 2px;
+}
+.box{
+    background: rgb(245, 63, 175);
+    border-radius: 5px;
+    color: aliceblue;
+    text-align: center;
+} 

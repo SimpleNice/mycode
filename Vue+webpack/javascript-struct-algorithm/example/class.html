@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象和面向对象</title>
+    <script src="../assets/js/class.js"></script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <hr>
+    <input id="price" placeholder="请输入金额" type="number">
+    <button id="deposit">存入</button>
+    <button id="withdaw">支取</button>
+</body>
+<script>
+    var pri = document.getElementById("price");
+    var app=document.getElementById("app");
+    var peo = new Checking(500);
+        app.innerHTML=peo.toString()+"<br>";
+    var dep=document.getElementById("deposit").addEventListener('click',function(){
+        peo.deposit(parseInt(pri.value));
+        app.innerHTML+="存入： +"+pri.value+"<br>";
+        app.innerHTML+=peo.toString()+"<br>";
+    })
+    var dep=document.getElementById("withdaw").addEventListener('click',function(){
+        peo.withdraw(parseInt(pri.value))==false?app.innerHTML+="余额不足！"+"<br>": app.innerHTML+="支取： -"+pri.value+"<br>";
+        app.innerHTML+=peo.toString()+"<br>";
+    })
+</script>
+</html>
