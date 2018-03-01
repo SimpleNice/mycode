@@ -20,8 +20,8 @@
         <ul>
           <li v-for="item in list" 
             v-show="item.show && ($store.state.loginStatus==item.logshow || item.logshow==false)" 
-            :class="{active:$store.state.checkMenu == item.name }">
-            <router-link :to="item.path">{{item.label}}</router-link>
+            :class="{active:$store.state.checkMenu == item.name}">
+            <router-link :to="item.link">{{item.label}}</router-link>
           </li>
         </ul>
       </div>

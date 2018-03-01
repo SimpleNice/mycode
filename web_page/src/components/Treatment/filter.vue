@@ -11,7 +11,8 @@
             :items="items"
             :add-format="getValue"
             width="100%"
-            class="typeahead"
+            class="search_long_input"
+            @keyup.entry="getResult"
             >
           </n3-typeahead>
       </div> 
@@ -38,7 +39,7 @@
                 this.$emit('change',val)
             },
             getResult(val){
-                this.$emit('inputchange',val)
+                this.$emit('inputChange',val)
             },
             getValue(val){
                 console.log(val)
@@ -46,7 +47,7 @@
         }
     }
 </script>
-<style scope>
+<style scoped>
     .search{    
         background-color: #dcedf9;
         width: 100%;
@@ -58,10 +59,6 @@
         width: 100%;
         max-width: 1366px;
         margin: 0 auto;
-        padding: 20px 40px;
-    }
-    .typeahead{
-        margin-top: 10px;
-        width: 40%;
+        padding: 20px 20px 10px;
     }
 </style>

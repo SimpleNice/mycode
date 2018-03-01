@@ -70,19 +70,41 @@ a.sign:hover{
 .n3-nav-tabs{
     border:0;
     li{
-        min-width: 80px;
+        min-width: 60px;
         text-align: center;
         a{
             border: 0px;
+            margin-left: -1px;
         }
+        a:focus,a:hover{
+            border: 0px;
+            outline: none;
+            border-radius:0px;
+            font-weight: 600;
+            border-bottom: 4px solid $main-color; 
+        } 
     }
     li.n3-nav-tabs-active{
-        font-weight: 600;
-        border-bottom: 4px solid $main-color;
        a,a:focus,a:hover{
            border: 0px;
            outline: none;
-           border-radius:0px; 
+           border-radius:0px;
+           font-weight: 600;
+           border-bottom: 4px solid $main-color; 
        } 
     }
+}
+.search_long_input{
+    margin-top: 10px;
+    width: 40%;
+}
+.h2_font{
+    font-size: 20px;
+    font-weight: 600;
+}
+.align-left{
+    text-align: left;
+}
+.align-right{
+    text-align: right;
 }
