@@ -44,6 +44,12 @@
 <script>
     export default{
         name:"treatSearch",
+        props:{
+            searchCondition:{
+                type:String,
+                default:''
+            }
+        },
         data(){
             return {
                 padient:'',
@@ -161,11 +167,20 @@
             getResult(val){
                 this.$emit('searchChange',val)
             },
-            getSelID(val){
-                this.$emit('searchTabs',val)
+            reload(val){
+                console.log(val)
+            }
+        },
+        created(){
+            this.$emit('searchTabs',0)
+            this.$emit('showPage',true) //改变父组件showPage状态,控制页面(搜索,浏览列表,概观)
+            this.reload(this.searchCondition)
+        },
+        watch:{
+            searchCondition(){
+                this.reload(this.searchCondition)
             }
         }
-
     }
 </script>
 <style lang="scss" scoped>

@@ -24,12 +24,12 @@
         props:{
             list:{
                 type:Array,
-                default:[{value:0,label:'全部'}]
+                default:[{value:'',label:'全部'}]
             }
         }, 
         data(){
             return{
-                defaultVal:0,
+                defaultVal:'',
                 padient:'',
                 items:[]
             }
@@ -39,7 +39,7 @@
                 this.$emit('change',val)
             },
             getResult(val){
-                this.$emit('inputchange',val)
+                this.$emit('inputChange',val)
             },
             getValue(val){
                 console.log(val)

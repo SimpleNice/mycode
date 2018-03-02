@@ -3,6 +3,9 @@ import Patient from '@/components/Patient'
 import Symptom from '@/components/Symptom'
 import Expert from '@/components/Expert'
 import Treatment from '@/components/Treatment'
+import TreatmentList from '@/components/Treatment/browse'
+import TreatmentSearch from '@/components/Treatment/search'
+import TreatmentSurvey from '@/components/Treatment/survey'
 import Error from '@/view/404'
 const routers=[
     {
@@ -61,13 +64,43 @@ const routers=[
         label:"专家",
         link:"/expert"
     },{
-        path: '/treatment/:id(\\d*)',
+        path: '/treatment',
         name: 'Treatment',
+        redirect: '/treatment/search',
         component: Treatment,
         show:true,
         logshow:false,
         label:"治疗",
-        link:"/treatment/"
+        link:"/treatment",
+        children:[
+            {
+                path: '/treatment/search',
+                name: 'TreatmentSearch',
+                component: TreatmentSearch,
+                show:false,
+                logshow:false,
+                label:"搜索",
+                link:"/treatment/search",
+            },
+            {
+                path: '/treatment/list',
+                name: 'TreatmentList',
+                component: TreatmentList,
+                show:false,
+                logshow:false,
+                label:"浏览列表",
+                link:"/treatment/list",
+            },
+            {
+                path: '/treatment/survey',
+                name: 'TreatmentSurvey',
+                component: TreatmentSurvey,
+                show:false,
+                logshow:false,
+                label:"概观",
+                link:"/treatment/survey",
+            }
+        ]
     },{
         path: '/',
         name: 'Aboutus',

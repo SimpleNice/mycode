@@ -241,7 +241,7 @@ export default {
           params
         })
         .then(data => {
-          (this.source = data.result.data || []),
+          (this.source = data.result.data || []);
             (this.pagination.total = data.result.total || 0);
           this.loading = false;
         })

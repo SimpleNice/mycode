@@ -1,80 +1,100 @@
 <template>
     <section class="content">
         <treat-filter :list="list" @change="changeSick" @inputChange="inputChange"/>
-        <section class="content_text box_show"  v-show="showPage">
-            <n3-tabs @change="change" :value="tabsVal">
-                <n3-tab header="搜索">
-                    <treat-search  @searchChange="searchChange" @searchTabs="searchTabs"></treat-search>
-                </n3-tab>
-                <n3-tab header="浏览列表">
-                    <treat-browse></treat-browse>
-                </n3-tab>
+        <section class="content_text box_show">
+            <n3-tabs @change="change" :value="tabsVal" v-show="showPage">
+                <n3-tab header="搜索"></n3-tab>
+                <n3-tab header="浏览列表" ></n3-tab>
             </n3-tabs>
-        </section>
-         <section class="content_text box_show" v-show="!showPage">
-            <n3-tabs @change="change" :value="0">
-                <n3-tab header="概观">
-                    <treat-search></treat-search>
-                </n3-tab>
-                <n3-tab header="个别患者评估">
-                    <treat-browse></treat-browse>
-                </n3-tab>
+            <n3-tabs :value="tabsVal" v-show="!showPage">
+                <n3-tab header="概观"></n3-tab>
             </n3-tabs>
+            <router-view @showPage="setShowPage" :searchCondition="searchCondition" @searchTabs="searchTabs"></router-view>
         </section>
     </section>
 </template>
 <script>
 import treatFilter from '@/components/Treatment/filter'
-import treatBrowse from '@/components/Treatment/browse'
-import treatSearch from '@/components/Treatment/search'
+import Storage from '@/utils/storage'
+import NProgress from 'nprogress'
 export default{
     name:'Treatment',
     data(){
         return {
+            loading:false,
             showPage:true,
             tabsVal:0,
             list:[
-                {value:0,label:'全部'},
-                {value:1,label:'胃癌'},
-                {value:2,label:'肝癌'},
-                {value:3,label:'脑瘫'},
-                {value:4,label:'脑溢血'},
-                {value:5,label:'心脏病'},
-                {value:6,label:'角膜炎'},
-            ]
+                //需加上登录判断.如果登录则获取用户添加的标签,否则为空,用户输入搜索条件时,该数组选中用户输入的搜索条件
+                {value:'',label:'全部'},
+                {value:'胃癌',label:'胃癌'},
+                {value:'肝癌',label:'肝癌'},
+                {value:'脑瘫',label:'脑瘫'},
+                {value:'脑溢血',label:'脑溢血'},
+                {value:'心脏病',label:'心脏病'},
+                {value:'角膜炎',label:'角膜炎'},
+            ],
+            searchCondition:''
         }
     },
     components:{
-        treatFilter:treatFilter,
-        treatBrowse:treatBrowse,
-        treatSearch:treatSearch
+        treatFilter:treatFilter
     },
     methods: {
-        change(){
-            this.tabsVal==0?this.tabsVal=1:this.tabsVal=0;
+        change(val){
+            switch (val) {
+                case 0:
+                    this.$router.push({name:'TreatmentSearch'})
+                    break;
+                default:
+                    this.$router.push({name:'TreatmentList'})
+                    break;
+            }
+        },
+        setShowPage(val){ //控制显示TABs
+            val?this.showPage=true:this.showPage=false
         },
         changeSick(val){
-            console.log(val);
+            this.searh(val)
         },
         inputChange(val){
-            console.log(val)
+            this.searh(val)
         },
-        searchChange(val){
-            console.log(val)
+        searh(val){
+            this.searchCondition=val
         },
         searchTabs(val){
-            this.tabsVal=1
             console.log(val)
+            this.tabsVal=val
+        },
+        reloadReport(id){
+            NProgress.start()
+            this.loading = true
+            this.$http.post("#",{id:id})
+                .then(data => {
+                //数据结构为考虑清楚暂未写
+                    this.loading = false;
+                    NProgress.down()
+                }).cache(error => {
+                    this.loading = false;
+                    NProgress.down()
+                    this.n3Alert({
+                        content: error || "加载失败，请刷新试试~",
+                        type: "danger",
+                        placement: "top-right",
+                        duration: 2000,
+                        width: "240px" // 内容不确定，建议设置width
+                });
+            }) 
         }    
     },
-    created () {
-        console.log(this.$route.params.id)
-        this.$route.params.id!=='' ? this.showPage=false : this.showPage=true;
-    },
-    watch:{
-        $route(){
-            this.$route.params.id!='' ? this.showPage=false : this.showPage=true;
-        }
-    }
+    // created () {
+    //     this.$route.params.id!=='' ? this.showPage=false : this.showPage=true;
+    // },
+    // watch:{
+    //     '$route'(){
+    //         this.tabsVal=0;
+    //     }
+    // }
 }
 </script>
