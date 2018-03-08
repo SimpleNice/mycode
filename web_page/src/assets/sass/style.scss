@@ -108,3 +108,69 @@ a.sign:hover{
 .align-right{
     text-align: right;
 }
+//感知有效性颜色标识-背景
+.important{
+    background-color:$mark-color;
+}
+.moderate{
+    background-color:lighten($mark-color,10%);
+}
+.slight
+{
+    background-color:lighten($mark-color,20%);
+}
+.none{
+    background-color:lighten($mark-color,30%);
+}
+.notell{
+    background-color:lighten($mark-color,35%);
+}
+//感知有效性颜色标识字体
+.important_f{
+    color:$mark-color;
+    padding: 0 5px 0 10px;
+}
+.moderate_f{
+    color:lighten($mark-color,10%);
+    padding: 0 5px 0 10px;
+}
+.slight_f{
+    color:lighten($mark-color,20%);
+    padding: 0 5px 0 10px;
+}
+.none_f{
+    color:lighten($mark-color,30%);
+    padding: 0 5px 0 10px;
+}
+.notell_f{
+    color:lighten($mark-color,35%);
+    padding: 0 5px 0 10px;
+}
+.danger{
+    background-color: $danger;
+}
+.common{
+    background-color: lighten($main-color,25%);
+}
+.show_strong{
+    color: $main-color;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.show_strong:hover{
+    color: darken($main-color, 20%);
+}
+//更改默认N3加载样式
+.n3-page-loading-con{
+    vertical-align: bottom;
+    margin-left: 5px;
+    i{
+        font-size: 14px;
+    }
+}
+.danger_f{
+    color: $danger;
+}
+.success_f{
+    color: $mark-color;
+}

@@ -19,33 +19,33 @@
   </section>
 </template>
 <script>
-    export default{
-        name:'treatmentFilter',
-        props:{
-            list:{
-                type:Array,
-                default:[{value:'',label:'全部'}]
-            }
-        }, 
-        data(){
-            return{
-                defaultVal:'',
-                padient:'',
-                items:[]
-            }
+export default{
+    name:'treatmentFilter',
+    props:{
+        list:{
+            type:Array,
+            default:[{value:'',label:'全部'}]
+        }
+    }, 
+    data(){
+        return{
+            defaultVal:'',
+            padient:'',
+            items:[]
+        }
+    },
+    methods: {
+        check(val){
+            this.$emit('change',val)
         },
-        methods: {
-            check(val){
-                this.$emit('change',val)
-            },
-            getResult(val){
-                this.$emit('inputChange',val)
-            },
-            getValue(val){
-                console.log(val)
-            }
+        getResult(val){
+            this.$emit('inputChange',val)
+        },
+        getValue(val){
+            console.log(val)
         }
     }
+}
 </script>
 <style scoped>
     .search{    

@@ -42,146 +42,147 @@
   </section>
 </template>
 <script>
-    export default{
-        name:"treatSearch",
-        props:{
-            searchCondition:{
-                type:String,
-                default:''
-            }
-        },
-        data(){
-            return {
-                padient:'',
-                items:[],
-                dataList:[
-                    [
-                        {
-                            className:"处方药",
-                            countNum:"1578",
-                            id:"1",
-                            list:[
-                                {name:"加巴喷丁",num:"7950",id:"6"},
-                                {name:"度洛西汀",num:"7614",id:"7"},
-                                {name:"普瑞巴林",num:"5376",id:"8"},
-                                {name:"氯硝西泮",num:"5121",id:"9"},
-                                {name:"加巴喷丁",num:"4805",id:"10"}
-                            ]
-                        },
-                        {
-                            className:"非处方药物",
-                            countNum:"405",
-                            id:"2",
-                            list:[
-                                {name:"布洛芬",num:"3027",id:"11111111"},
-                                {name:"阿司匹林",num:"2625",id:"12"},
-                                {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
-                                {name:"萘普生OTC",num:"969",id:"14"},
-                                {name:"西替利嗪",num:"840",id:"15"}
-                            ]
-                        },
-                        {
-                            className:"拾遗",
-                            countNum:"1741",
-                            id:"3",
-                            list:[
-                                {name:"维生素D",num:"4756",id:"1"},
-                                {name:"多种维生素",num:"3550",id:"2"},
-                                {name:"欧米茄3鱼油",num:"2739",id:"4"},
-                                {name:"维生素D3(但钙化醇)",num:"1813",id:"3"},
-                                {name:"CoQ10（辅酶Q10）",num:"1605",id:"5"}
-                            ]
-                        }
-                    ],
-                    [
-                        {
-                            className:"处方药",
-                            countNum:"1578",
-                            id:"1",
-                            list:[
-                                {name:"加巴喷丁",num:"7950",id:"6"},
-                                {name:"度洛西汀",num:"7614",id:"7"},
-                                {name:"普瑞巴林",num:"5376",id:"8"},
-                                {name:"氯硝西泮",num:"5121",id:"9"},
-                                {name:"加巴喷丁",num:"4805",id:"10"}
-                            ]
-                        },
-                        {
-                            className:"非处方药物",
-                            countNum:"405",
-                            id:"2",
-                            list:[
-                                {name:"布洛芬",num:"3027",id:"11"},
-                                {name:"阿司匹林",num:"2625",id:"12"},
-                                {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
-                                {name:"萘普生OTC",num:"969",id:"14"},
-                                {name:"西替利嗪",num:"840",id:"15"}
-                            ]
-                        },
-                        {
-                            className:"拾遗",
-                            countNum:"1741",
-                            id:"3",
-                            list:[
-                                {name:"维生素D",num:"4756",id:"1"},
-                                {name:"多种维生素",num:"3550",id:"2"},
-                                {name:"欧米茄3鱼油",num:"2739",id:"4"},
-                                {name:"维生素D3(但钙化醇)",num:"1813",id:"3"},
-                                {name:"CoQ10（辅酶Q10）",num:"1605",id:"5"}
-                            ]
-                        }
-                    ],
-                    [
-                        {
-                            className:"处方药",
-                            countNum:"1578",
-                            id:"1",
-                            list:[
-                                {name:"加巴喷丁",num:"7950",id:"6"},
-                                {name:"度洛西汀",num:"7614",id:"7"},
-                                {name:"普瑞巴林",num:"5376",id:"8"},
-                                {name:"氯硝西泮",num:"5121",id:"9"},
-                                {name:"加巴喷丁",num:"4805",id:"10"}
-                            ]
-                        },
-                        {
-                            className:"非处方药物",
-                            countNum:"405",
-                            id:"2",
-                            list:[
-                                {name:"布洛芬",num:"3027",id:"11"},
-                                {name:"阿司匹林",num:"2625",id:"12"},
-                                {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
-                                {name:"萘普生OTC",num:"969",id:"14"},
-                                {name:"西替利嗪",num:"840",id:"15"}
-                            ]
-                        }
-                    ]
+export default{
+    name:"treatSearch",
+    props:{
+        searchCondition:{
+            type:String,
+            default:''
+        }
+    },
+    data(){
+        return {
+            padient:'',
+            items:[],
+            dataList:[
+                [
+                    {
+                        className:"处方药",
+                        countNum:"1578",
+                        id:"1",
+                        list:[
+                            {name:"加巴喷丁",num:"7950",id:"6"},
+                            {name:"度洛西汀",num:"7614",id:"7"},
+                            {name:"普瑞巴林",num:"5376",id:"8"},
+                            {name:"氯硝西泮",num:"5121",id:"9"},
+                            {name:"加巴喷丁",num:"4805",id:"10"}
+                        ]
+                    },
+                    {
+                        className:"非处方药物",
+                        countNum:"405",
+                        id:"2",
+                        list:[
+                            {name:"布洛芬",num:"3027",id:"11111111"},
+                            {name:"阿司匹林",num:"2625",id:"12"},
+                            {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
+                            {name:"萘普生OTC",num:"969",id:"14"},
+                            {name:"西替利嗪",num:"840",id:"15"}
+                        ]
+                    },
+                    {
+                        className:"拾遗",
+                        countNum:"1741",
+                        id:"3",
+                        list:[
+                            {name:"维生素D",num:"4756",id:"1"},
+                            {name:"多种维生素",num:"3550",id:"2"},
+                            {name:"欧米茄3鱼油",num:"2739",id:"4"},
+                            {name:"维生素D3(但钙化醇)",num:"1813",id:"3"},
+                            {name:"CoQ10（辅酶Q10）",num:"1605",id:"5"}
+                        ]
+                    }
                 ],
-            }
+                [
+                    {
+                        className:"处方药",
+                        countNum:"1578",
+                        id:"1",
+                        list:[
+                            {name:"加巴喷丁",num:"7950",id:"6"},
+                            {name:"度洛西汀",num:"7614",id:"7"},
+                            {name:"普瑞巴林",num:"5376",id:"8"},
+                            {name:"氯硝西泮",num:"5121",id:"9"},
+                            {name:"加巴喷丁",num:"4805",id:"10"}
+                        ]
+                    },
+                    {
+                        className:"非处方药物",
+                        countNum:"405",
+                        id:"2",
+                        list:[
+                            {name:"布洛芬",num:"3027",id:"11"},
+                            {name:"阿司匹林",num:"2625",id:"12"},
+                            {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
+                            {name:"萘普生OTC",num:"969",id:"14"},
+                            {name:"西替利嗪",num:"840",id:"15"}
+                        ]
+                    },
+                    {
+                        className:"拾遗",
+                        countNum:"1741",
+                        id:"3",
+                        list:[
+                            {name:"维生素D",num:"4756",id:"1"},
+                            {name:"多种维生素",num:"3550",id:"2"},
+                            {name:"欧米茄3鱼油",num:"2739",id:"4"},
+                            {name:"维生素D3(但钙化醇)",num:"1813",id:"3"},
+                            {name:"CoQ10（辅酶Q10）",num:"1605",id:"5"}
+                        ]
+                    }
+                ],
+                [
+                    {
+                        className:"处方药",
+                        countNum:"1578",
+                        id:"1",
+                        list:[
+                            {name:"加巴喷丁",num:"7950",id:"6"},
+                            {name:"度洛西汀",num:"7614",id:"7"},
+                            {name:"普瑞巴林",num:"5376",id:"8"},
+                            {name:"氯硝西泮",num:"5121",id:"9"},
+                            {name:"加巴喷丁",num:"4805",id:"10"}
+                        ]
+                    },
+                    {
+                        className:"非处方药物",
+                        countNum:"405",
+                        id:"2",
+                        list:[
+                            {name:"布洛芬",num:"3027",id:"11"},
+                            {name:"阿司匹林",num:"2625",id:"12"},
+                            {name:"对乙酰氨基酚（扑热息痛）",num:"1612",id:"13"},
+                            {name:"萘普生OTC",num:"969",id:"14"},
+                            {name:"西替利嗪",num:"840",id:"15"}
+                        ]
+                    }
+                ]
+            ],
+        }
+    },
+    methods:{
+        getValue(val){
+            console.log(val)
         },
-        methods:{
-            getValue(val){
-                console.log(val)
-            },
-            getResult(val){
-                this.$emit('searchChange',val)
-            },
-            reload(val){
-                console.log(val)
-            }
+        getResult(val){
+            this.$emit('searchChange',val)
         },
-        created(){
-            this.$emit('searchTabs',0)
-            this.$emit('showPage',true) //改变父组件showPage状态,控制页面(搜索,浏览列表,概观)
+        reload(val){
+            console.log(val)
+        }
+    },
+    created(){
+        this.$emit('searchTabs',0)
+        this.$emit('showPage',true) //改变父组件showPage状态,控制页面(搜索,浏览列表,概观)
+        this.$emit('setTitle','治疗') //设置显示标题
+        this.reload(this.searchCondition)
+    },
+    watch:{
+        searchCondition(){
             this.reload(this.searchCondition)
-        },
-        watch:{
-            searchCondition(){
-                this.reload(this.searchCondition)
-            }
         }
     }
+}
 </script>
 <style lang="scss" scoped>
     .tabs_search{
@@ -189,8 +190,9 @@
         padding: 0px 20px 10px;
     }
     .tabs_content{
-        padding: 20px;
-        display: grid;
+        // display: grid;
+        overflow: hidden;
+        padding-bottom: 20px;
         h2{
             margin-top: 0px;
         }

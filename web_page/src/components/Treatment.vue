@@ -1,6 +1,7 @@
 <template>
     <section class="content">
         <treat-filter :list="list" @change="changeSick" @inputChange="inputChange"/>
+        <h3 style="max-width: 1366px;margin: 0 auto;padding: 20px 0px 5px;color:#414141;">{{title}}</h3>
         <section class="content_text box_show">
             <n3-tabs @change="change" :value="tabsVal" v-show="showPage">
                 <n3-tab header="搜索"></n3-tab>
@@ -9,7 +10,7 @@
             <n3-tabs :value="tabsVal" v-show="!showPage">
                 <n3-tab header="概观"></n3-tab>
             </n3-tabs>
-            <router-view @showPage="setShowPage" :searchCondition="searchCondition" @searchTabs="searchTabs"></router-view>
+            <router-view @showPage="setShowPage" @setTitle="setTitle" :searchCondition="searchCondition" @searchTabs="searchTabs"></router-view>
         </section>
     </section>
 </template>
@@ -22,8 +23,9 @@ export default{
     data(){
         return {
             loading:false,
-            showPage:true,
+            showPage:true,//控制显示治疗评估报告详情
             tabsVal:0,
+            title:'治疗',
             list:[
                 //需加上登录判断.如果登录则获取用户添加的标签,否则为空,用户输入搜索条件时,该数组选中用户输入的搜索条件
                 {value:'',label:'全部'},
@@ -52,7 +54,10 @@ export default{
             }
         },
         setShowPage(val){ //控制显示TABs
-            val?this.showPage=true:this.showPage=false
+            this.showPage=val
+        },
+        setTitle(val){
+            this.title=val
         },
         changeSick(val){
             this.searh(val)
@@ -64,7 +69,6 @@ export default{
             this.searchCondition=val
         },
         searchTabs(val){
-            console.log(val)
             this.tabsVal=val
         },
         reloadReport(id){
