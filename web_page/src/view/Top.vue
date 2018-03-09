@@ -7,7 +7,7 @@
           </a>
         </div>
         <div class="oper" v-if="$store.state.loginStatus==false">
-          <span class="btn general_btn">登录</span>
+          <span class="btn general_btn" @click="login">登录</span>
           <span class="btn mark_btn">注册账号</span>
         </div>
        <div class="oper text" v-else>
@@ -30,7 +30,6 @@
 
 <script>
 import routers from "@/router/routers"
-import store from '@/vuex/store'
 export default {
   naem: "top",
   data() {
@@ -38,8 +37,12 @@ export default {
       list: routers
     }
   },
-  store,
   created() {
+  },
+  methods: {
+    login(){
+      this.$router.push({name:'login'})
+    }
   }
 };
 </script>

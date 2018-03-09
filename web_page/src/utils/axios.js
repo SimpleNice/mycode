@@ -1,10 +1,11 @@
 import axios from 'axios'
 import Vue from 'vue'
-import Api from '../config.js'
+import { IP , MSG } from './api.js'
 import Storage from './storage.js'
+import NProgress from 'nprogress'
 
 let http = axios.create({
-    baseURL:Api.ROOT,
+    baseURL:IP,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
@@ -43,8 +44,8 @@ http.interceptors.response.use(res => {
    * ！实际情况请根据前后端的API规范进行定义
    */
   let data = res.data
-  if (!data || data.state !== 'success') {
-    return Promise.reject(data.error_message || MSG.SERVICE_FAIL)
+  if (!data) {
+    return Promise.reject(data.ret_msg || MSG.SERVICE_FAIL)
   }
   return data
 }, error => {

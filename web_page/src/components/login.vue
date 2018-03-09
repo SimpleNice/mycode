@@ -55,9 +55,10 @@
     </section>
 </template>
 <script>
-import { STORAGE_KEY  } from "@/utils/const";
-import storage from "@/utils/storage";
-import { LOGIN } from "@/utils/api"
+import { mapActions } from 'vuex'
+import { STORAGE_KEY  } from "@/utils/const"
+import storage from "@/utils/storage"
+import MD5 from "js-md5"
 export default {
   data() {
     return {
@@ -70,6 +71,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['login']),
     saveAccount() {
       this.remember.length ? storage.setItem(STORAGE_KEY.ACCOUNT, this.account) : storage.setItem(STORAGE_KEY.ACCOUNT,'');
     },
@@ -93,32 +95,44 @@ export default {
     },
     submit () {
         this.loading = true
-        // this.$http.post(LOGIN,{
-        //   account: this.account,
-        //   password: this.password
-        // })
-        // .then(data => {
+        let param = Object.assign({},{
+            username:this.account,
+            password:MD5(this.password)
+        })
+        this.login(param)
+        .then(data => {
           this.loading = false
           storage.setItem(STORAGE_KEY.LAST_LOGIN_TIME, Date.now())
-        //   if (this.$route.query.back) {
-        //       this.$router.replace(this.$route.query.back)
-        //   } else {
-            this.$router.replace({
-              name: 'index'
+          if(data.ret_code == 0){
+            if (this.$route.query.back) {
+                this.$router.replace(this.$route.query.back)
+                } else {
+                this.$router.replace({
+                name: 'Index'
+                })
+            }
+          }else{
+            this.n3Alert({
+                content:data.ret_msg,
+                type: 'danger',
+                placement: 'bottom',
+                duration: 5000,
+                width: '400px'
             })
-        //   }
-        // })
-        // .catch(error => {
-        //   this.loading = false
-        //   this.n3Alert({
-        //     content: error || '登录失败，请检查账号密码~',
-        //     type: 'danger',
-        //     placement: 'bottom',
-        //     duration: 5000,
-        //     width: '240px'
-        //   })
-        // })
-      },
+          }
+          
+        })
+        .catch(error => {
+          this.loading = false
+          this.n3Alert({
+            content: error || '网络繁忙请重试!',
+            type: 'danger',
+            placement: 'bottom',
+            duration: 5000,
+            width: '4000px'
+          })
+        })
+      }
   },
   created() {
     this.getAccount()

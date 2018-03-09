@@ -1,5 +1,5 @@
 //接口入口地址:避免更改域名后多处修改请求地址
-const IP = ""
+export const IP = "http://192.168.0.112:80"
 //首页
 export const INDEX = IP + ''      
 //病友                      
@@ -26,3 +26,10 @@ export const TREATMENT = {
     OVERVIEW_DOSE : IP + ''                   
 }
 
+//登录
+export const LOGIN = IP + '/account/login/username'
+
+
+export const MSG = {
+    SERVICE_FAIL: '后端接口服务异常，请刷新试试~' // 后端服务异常
+}
