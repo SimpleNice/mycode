@@ -7,6 +7,7 @@ import TreatmentList from '@/components/Treatment/browse'
 import TreatmentSearch from '@/components/Treatment/search'
 import TreatmentSurvey from '@/components/Treatment/survey'
 import Login from '@/components/login'
+import Reg from '@/components/reg'
 import Error from '@/view/404'
 const routers=[
     {
@@ -110,6 +111,14 @@ const routers=[
         logshow:false,
         label: "登录",
         link: "/login"
+    },{
+        path: '/reg',
+        name: 'reg',
+        component:Reg,
+        show:false,
+        logshow:false,
+        label: "注册",
+        link: "/reg"
     },{
         path: '/',
         name: 'Aboutus',

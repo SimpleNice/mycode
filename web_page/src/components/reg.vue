@@ -157,6 +157,6 @@ export default {
 </script>
 <style lang="scss" scoped>
     .content .content_text{
-        margin-top: 5%;
+        margin-top: 40px;
     }
 </style>
