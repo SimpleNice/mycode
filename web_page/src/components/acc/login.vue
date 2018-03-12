@@ -2,7 +2,7 @@
     <section class="content">
         <section class="content_text login_box box_show">
             <div class="login_left">
-                <img src="../../static/img/zhongyi.jpg" alt="" srcset="">
+                <img src="../../../static/img/zhongyi.jpg" alt="" srcset="">
             </div>
             <div class="login_right">
                 <header>

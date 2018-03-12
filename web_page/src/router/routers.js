@@ -6,7 +6,7 @@ import Treatment from '@/components/Treatment'
 import TreatmentList from '@/components/Treatment/browse'
 import TreatmentSearch from '@/components/Treatment/search'
 import TreatmentSurvey from '@/components/Treatment/survey'
-import Login from '@/components/login'
+import Login from '@/components/acc/login'
 import Error from '@/view/404'
 const routers=[
     {
