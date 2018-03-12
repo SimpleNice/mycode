@@ -2,7 +2,7 @@
     <section class="content">
         <section class="content_text login_box box_show">
             <div class="login_left">
-                <img src="../../../static/img/zhongyi.jpg" alt="" srcset="">
+                <img src="../../static/img/zhongyi.jpg" alt="" srcset="">
             </div>
             <div class="login_right">
                 <header>
@@ -157,6 +157,6 @@ export default {
 </script>
 <style lang="scss" scoped>
     .content .content_text{
-        margin-top: 5%;
+        margin-top: 40px;
     }
 </style>

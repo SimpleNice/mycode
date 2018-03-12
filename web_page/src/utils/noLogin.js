@@ -5,6 +5,7 @@ const noLogin =[
     'Expert',
     'Treatment',
     'login',
+    'reg',
     'Aboutus',
     '404'
 ]
