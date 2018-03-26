@@ -7,5 +7,5 @@ export const STORAGE_KEY = {
   'LAST_LOGIN_TIME': prefix + 'LAST_LOGIN_TIME', // 最近一次登陆成功的时间戳 字段名
   'ADDRESS': prefix+'ADDRESS'//存储省市区信息
 }
-export const ADDRESS = []
+export const ADDRESSLIST = []
 export const MAX_LOGIN_AGE = 7.2 * 1000 * 1000

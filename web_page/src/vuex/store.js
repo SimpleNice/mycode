@@ -40,7 +40,7 @@ const actions = {
                 commit(SET_TOKEN, data.data.token)
                 commit('setLoginStatus',true)
             }
-            return data
+            return data.data
         })
     },
     setLoginStatus (context,status){

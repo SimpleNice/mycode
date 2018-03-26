@@ -1,0 +1,14 @@
+.member-home .member-home-col{
+    float:left;
+}
+.member-home .avatar{
+  float:left;  
+}
+.member-home .member-home-col .box{
+    overflow: hidden;
+}
+.member-home .box_content
+{
+    float: left;
+    width: calc(100% - 80px);
+}

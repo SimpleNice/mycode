@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Api from '../config.js'
-import { ADDRESS } from './const';
+import { ADDRESSLIST } from './const';
 function getCity(arr){
     const prov = [] 
     let len=arr.length;
@@ -18,7 +18,7 @@ function getCity(arr){
             if(datas.list.length > 0){
                 parmts.children = getArea(datas.list)
             }
-            ADDRESS.push(parmts)
+            ADDRESSLIST.push(parmts)
         }).catch(error => {
             console.log(error);
         })

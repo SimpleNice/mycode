@@ -3,13 +3,12 @@ import Vue from 'vue'
 import { IP , MSG } from './api.js'
 import Storage from './storage.js'
 import NProgress from 'nprogress'
-
 let http = axios.create({
     baseURL:IP,
     headers: {
         'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
       },
-      withCredentials: false
+    withCredentials: false
 })
 
 http.interceptors.request.use((config)=>{
@@ -63,7 +62,7 @@ http.interceptors.response.use(res => {
 
 export default {
   install () {
-    Vue.prototype.$http = http
-    Vue.http = http
+    Vue.prototype.$http = axios
+    Vue.http = axios
   }
 }

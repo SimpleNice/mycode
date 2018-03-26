@@ -15,7 +15,7 @@ const router = new Router({
 router.beforeEach((to,from,next)=>{
   NProgress.start()
   if(to.name==="login"){
-    if (storage.getItem(STORAGE_KEY.ADDRESS)==null){
+    if (storage.getItem(STORAGE_KEY.ADDRESSLIST)==null){
       getprov.getProv()
     }
     return next()

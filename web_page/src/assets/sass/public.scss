@@ -105,7 +105,7 @@ a:hover{
         width: 100%;
         .box{
             width: 25%;
-            padding: 11% 0;
+            padding: 80px 0;
             text-align: center;
             float: left;
             color: $all-color;
@@ -126,7 +126,8 @@ a:hover{
         margin: 0 auto;
     }
     .error{
-        margin-bottom:40px; 
+        margin-bottom: 5%;
+        margin-top: 5%;
     }
     .content_text{
         margin-top: 20px;
@@ -412,10 +413,11 @@ a:hover{
 {
     min-height: 430px;
     background-color: lighten($all-color,30%);
+    overflow: hidden;
     .login_left{
         padding: 30px 20px;
         width: 30%;
-        position: relative;
+        float: left;
         img{
             width: 100%;
             min-height: 370px;
@@ -423,12 +425,12 @@ a:hover{
     }
     .login_right{
         width: 70%;
-        left: 30%;
-        position: absolute;
-        top: 40px;
+        float: left;
+        margin-top: 50px;
         padding: 10px 30px;
         border-left: 1px solid lighten($all-color,22%);
         min-height: 334px;
+        margin-bottom: 50px;
         header{
             padding-bottom: 10px;
         }
@@ -437,6 +439,218 @@ a:hover{
         }
     }
 
+}
+.recoverPwd{
+    header{
+        padding:0 10px;
+    }
+    .row{
+        width: 100%;
+        padding: 30px;
+        background-color: lighten($all-color,30%);    
+        header{
+            padding: 0;
+        }   
+        .line{
+            margin-top: 20px;
+        }
+    }
+}
+.member-home{
+    display: flex;
+    width: 83.33333%;
+    padding-left: 20px;
+    margin-left: 4.0%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    .member-home-col:first-child {
+        margin-right: 20px;
+        width: calc((100% * (16/24)) - 10.01px);
+    }
+    .member-home-col {
+        width: calc((100% * (8/24)) - 10.01px);
+    }
+    .box{
+        border-radius: 3px;
+        background: $white;
+        width: 100%;
+        padding: 20px 20px 30px;
+        display: flex;
+        .box_content{
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            -ms-flex-negative: 1;
+            flex-shrink: 1;
+            .line{
+                margin-top: 10px;
+            }
+        }
+    }
+    .avatar{
+        width: 60px;
+        height: 60px;
+        margin-right: 20px;
+        img{
+            width: 100%;
+            border-radius:30px; 
+            height: 100%;
+        }
+    }
+    .min-avatar{
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+    }
+    .stream-event{
+        padding: 20px;
+        background-color: $white;
+        margin-top: 10px;
+        .stream-event-header{
+            display: flex;
+            margin-bottom: 20px;
+            flex-flow: wrap;
+        }
+        .interactive{
+            margin-bottom: -20px;
+        }
+    }
+   .media-object{
+    .media-content{
+        height: 40px;
+        margin-top: 10px;
+        width: calc(100% - 80px);
+        position: relative;
+    }
+    .media-text{
+        width: calc(100% - 30px);
+    }
+    .media-oper{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 30px;
+        text-align: center;
+    }
+    .media-img{
+        width: 100%;
+        img{
+            max-width: 100%;
+        }
+    }
+    hr{
+        border-color: #cccccc;
+        margin: 10px 0px;
+    }
+   }
+   .min-media-object{
+       margin-top: 15px;
+       margin-bottom: 10px;
+       .media-content{
+            height: 40px;
+            margin-top: 5px;
+            width: calc(100% - 45px);
+            position: relative;
+        }
+        .button-group{
+            margin-left: 45px;
+            padding-top: 5px;
+        }
+   }
+   .interactive{
+       background-color: lighten($all-color,30%);
+       margin:0 -20px;
+       padding: 20px;
+       .button-group{
+           width: 100%;
+           text-align: right;
+       }
+   }
+}
+//健康状态
+.health{
+    display: flex;
+    margin-left: 3.0%;
+    width: 94.3333%;
+    margin-bottom: 40px;
+    .nav{
+        width: 220px;
+        .is-active{
+            border-left: 2px solid #41cac0;
+        }
+    }
+    .row{
+        width: calc(100% - 200px);
+        margin-left: 20px;
+    }
+}
+.columns_table{
+    width: 100%;
+    background-color: $white;
+    padding: 20px;
+    margin-top: 20px;
+    table{
+        width: 100%;
+        th{
+            padding-bottom: 5px;
+        }
+        tr{
+            border-top: 1px solid lighten($all-color,10%);
+            td{
+                padding: 15px 0;
+            }
+            td:last-child{
+                font-size: 16px;
+            }
+        }
+
+    }
+}
+.columns,.asideRight{
+    .inputLine{
+        height: 45px;
+        margin-top: 10px;
+        .headline{
+            width: 80px;
+        }
+    }
+    .inputLine:first-child{
+        margin-top: 20px;
+    }
+    .enter{
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        outline: none;
+    }
+    .enter_input{
+        width:208px;
+        height: 34px; 
+        padding: 6px 12px;
+    }
+    .enter_input_bg{
+        width:300px;
+        height: 34px; 
+        padding: 6px 12px;
+    }
+    .enter_textarea{
+        width: 100%;
+        height: 60px;
+        resize: none;
+    }
+    .enter_textarea_lg{
+        height: 260px;
+    }
+    .enter:focus {
+        border: 1px solid #41cac0;
+        outline: 0;
+    }
+    .bold{
+        font-weight: 600;
+    }
+    .story{
+        margin-top: 10px;
+        text-align: right;
+    }
 }
 @media screen and (max-width:1024px){
     .content{
@@ -451,5 +665,20 @@ a:hover{
                 display: none;
             }
         } 
+    }
+    .login_box{
+        .login_left{
+           display: none;
+        }
+        .login_right{
+            width: 100%;
+            border-left: 0px solid lighten($all-color,22%);
+            header{
+                padding-bottom: 10px;
+            }
+            .columns{
+                line-height: 40px;
+            }
+        }  
     }
 }

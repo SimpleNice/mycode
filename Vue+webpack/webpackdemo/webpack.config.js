@@ -5,9 +5,9 @@ module.exports={
     //定义入口文件
     entry:{
         // entry:'./src/entry.js',
-        // entry2:'./src/entry2.js',
-        app:'./src/index.js',
-        print:'./src/print.js'
+           entry2:'./src/entry2.js',
+        // app:'./src/index.js',
+        // print:'./src/print.js'
     },
     //定义出口文件
     output:{

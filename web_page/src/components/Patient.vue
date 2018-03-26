@@ -76,7 +76,7 @@
                     580,254名成员决定与 <span class="sign">中医联助乐网</span> 的其他成员分享他们的个人资料。
                     <div class="header-line"> 
                        <span v-if="model.age[0] > 0 || model.age[1] < 100">{{model.age[0]}}岁 至 {{model.age[1]}}岁<n3-icon type="times" title="删除" @click.native="delClick(ageDel)"></n3-icon></span>
-                       <span v-if="model.sex!=='0'">{{model.sex == '1' ? '男' : '女'}}<n3-icon type="times" title="删除" @click.native="delClick(sexDel)"></n3-icon></span>
+                       <span v-if="model.sex!=='0'">{{model.sex == '1' ? '先生' : '女士'}}<n3-icon type="times" title="删除" @click.native="delClick(sexDel)"></n3-icon></span>
                        <span v-if="model.padient!==''">{{model.padient}}<n3-icon type="times" title="删除" @click.native="delClick(padientDel)"></n3-icon></span>
                        <span v-if="model.single!=='0'">{{model.single}}星病人<n3-icon type="times" title="删除" @click.native="delClick(singleDel)"></n3-icon></span>
                     </div>
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="user">
                                      <span class="sign">{{item.name}}</span></br>
-                                     <span class="text text_1">{{item.sex =='1'? '男':'nv'}}</span>
+                                     <span class="text text_1"><n3-icon type="mars" title="先生" class="male" v-if="item.sex == '1'"></n3-icon><n3-icon type="venus" class="female" title="女士" v-else></n3-icon></span>
                                      <span class="text text_1">{{item.age}}岁</span></br>
                                 </div>
                                
@@ -145,7 +145,7 @@ export default {
           id: 1,
           name: "落花浅忆",
           headPortrait: "../../static/img/head.jpg",
-          sex: "1",
+          sex: "0",
           last_time: "2018-01-30",
           age: "20",
           symptom: [

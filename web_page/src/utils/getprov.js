@@ -1,11 +1,11 @@
 import axios from 'axios'
-import Api from '../config.js'
-import { ADDRESS } from './const';
+import { ADDRESS } from './api.js'
+import { ADDRESSLIST } from './const';
 function getCity(arr){
     const prov = [] 
     let len=arr.length;
     for (let i = 0; i < len; i++) {
-        axios.get(Api.ROOT+Api.CITY,{
+        axios.get(ADDRESS.CITY,{
             params:{
                 provinceid:arr[i].provinceid
             }
@@ -18,7 +18,7 @@ function getCity(arr){
             if(datas.list.length > 0){
                 parmts.children = getArea(datas.list)
             }
-            ADDRESS.push(parmts)
+            ADDRESSLIST.push(parmts)
         }).catch(error => {
             console.log(error);
         })
@@ -28,7 +28,7 @@ function getArea(arr){
     let len=arr.length;
     let backArr=[]
     for (let i = 0; i < len; i++) {
-        axios.get(Api.ROOT+Api.AREA,{
+        axios.get(ADDRESS.AREA,{
             params:{
                 cityid:arr[i].cityid
             }
@@ -64,7 +64,7 @@ function setItem(arr){
 */
 export default {
     getProv(){
-        axios.get(Api.ROOT+Api.PROV)
+        axios.get(ADDRESS.PROV)
         .then(data=>{
             let arr = data.data.data;
             getCity(arr.list)

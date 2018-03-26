@@ -9,7 +9,7 @@
 
 <script>
 import LeftMenu from "@/components/LeftMenu"
-import {STORAGE_KEY ,ADDRESS } from "../utils/const"
+import {STORAGE_KEY ,ADDRESSLIST } from "../utils/const"
 import storage from "../utils/storage"
 export default {
   name: "index",
@@ -19,8 +19,8 @@ export default {
     }
   },
   created () {
-    if(storage.getItem(STORAGE_KEY.ADDRESS)==null){
-      storage.setItem(STORAGE_KEY.ADDRESS,JSON.stringify(ADDRESS))
+    if(storage.getItem(STORAGE_KEY.ADDRESSLIST)==null){
+      storage.setItem(STORAGE_KEY.ADDRESSLIST,JSON.stringify(ADDRESSLIST))
     }
   },
   computed: {

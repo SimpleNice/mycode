@@ -164,7 +164,7 @@ export default {
         sex: "0",
         state: false
       },
-      options: JSON.parse(storage.getItem(STORAGE_KEY.ADDRESS)),
+      options: JSON.parse(storage.getItem(STORAGE_KEY.ADDRESSLIST)),
       loading: false
     };
   },

@@ -8,7 +8,7 @@
         </div>
         <div class="oper" v-if="$store.state.loginStatus==false">
           <span class="btn general_btn" @click="login">登录</span>
-          <span class="btn mark_btn">注册账号</span>
+          <span class="btn mark_btn" @click="reg">注册账号</span>
         </div>
        <div class="oper text" v-else>
           <a class="mark_a" href="#">落花浅忆</a> |
@@ -30,11 +30,14 @@
 
 <script>
 import routers from "@/router/routers"
+import {STORAGE_KEY ,ADDRESSLIST } from "@/utils/const"
+import storage from "@/utils/storage"
 export default {
   naem: "top",
   data() {
     return {
-      list: routers
+      list: routers,
+      
     }
   },
   created() {
@@ -42,6 +45,9 @@ export default {
   methods: {
     login(){
       this.$router.push({name:'login'})
+    },
+    reg(){
+      this.$router.push({name:'reg'})
     }
   }
 };

@@ -8,6 +8,19 @@ import TreatmentSearch from '@/components/Treatment/search'
 import TreatmentSurvey from '@/components/Treatment/survey'
 import Login from '@/components/acc/login'
 import Reg from '@/components/acc/reg'
+import RecoverPwd from '@/components/acc/recoverPwd'
+import PersonalCenter from '@/components/PersonalCenter'
+// import SearchSel from '@/components/searchSel'
+//健康状态
+import Health from '@/components/Health' //健康状态
+import myInformation from '@/components/health/myInformation' //我的信息
+import HealthDiary from '@/components/health/healthDiary' //健康日记
+import Majorillness from '@/components/health/majorillness' //主要病症
+import MyChart from '@/components/health/myChart'//我的图标
+import MySymptoms from '@/components/health/mySymptoms' //我的症状
+import MyTreatment from '@/components/health/myTreatment'//我的治疗
+import CheckingData from '@/components/health/checkingData' //检查记录
+import Assess from '@/components/health/assess'//评估
 import Error from '@/view/404'
 const routers=[
     {
@@ -18,21 +31,96 @@ const routers=[
         label:"首页",
         link:"/"
     },{
-        path: '/',
+        path: '/PersonalCenter',
         name: 'PersonalCenter',
-        component: IndexView,  
+        component: PersonalCenter,  
         show:true,
         logshow:true,
         label:"个人中心",
-        link:"/"
+        link:"/PersonalCenter"
     },{
-        path: '/',
-        name: 'HealthStatus',
-        component: IndexView,  
+        path: '/health',
+        name: 'Health',
+        component: Health,
+        redirect: '/health/myInformation',  
         show:true,
         logshow:true,
         label:"健康状态",
-        link:"/"
+        link:"/health",
+        children:[
+            {
+                path: '/health/myInformation',
+                name: 'MyInformation',
+                component: myInformation,
+                show:false,
+                logshow:false,
+                label:"我的信息",
+                link:"/health/myInformation",
+            },
+            {
+                path: '/health/majorillness',
+                name: 'Majorillness',
+                component: Majorillness,
+                show:false,
+                logshow:false,
+                label:"主要病症",
+                link:"/health/majorillness",
+            },
+            {
+                path: '/health/healthDiary',
+                name: 'HealthDiary',
+                component: HealthDiary,
+                show:false,
+                logshow:false,
+                label:"健康日记",
+                link:"/health/healthDiary",
+            },
+            {
+                path: '/health/checkingData',
+                name: 'CheckingData',
+                component: CheckingData,
+                show:false,
+                logshow:false,
+                label:"检查记录",
+                link:"/health/checkingData",
+            },
+            {
+                path: '/health/myChart',
+                name: 'MyChart',
+                component: MyChart,
+                show:false,
+                logshow:false,
+                label:"我的图表",
+                link:"/health/myChart",
+            },
+            {
+                path: '/health/mySymptoms',
+                name: 'MySymptoms',
+                component: myInformation,
+                show:false,
+                logshow:false,
+                label:"我的症状",
+                link:"/health/mySymptoms",
+            },
+            {
+                path: '/health/myTreatment',
+                name: 'MyTreatment',
+                component: MyTreatment,
+                show:false,
+                logshow:false,
+                label:"我的治疗",
+                link:"/health/myTreatment",
+            },
+            {
+                path: '/health/assess',
+                name: 'Assess',
+                component: Assess,
+                show:false,
+                logshow:false,
+                label:"评估",
+                link:"/health/assess",
+            },
+        ]
     },{
         path: '/patient',
         name: 'Patient',
@@ -119,6 +207,14 @@ const routers=[
         logshow:false,
         label: "注册",
         link: "/reg"
+    },{
+        path: '/recoverPwd',
+        name: 'recoverPwd',
+        component:RecoverPwd,
+        show:false,
+        logshow:false,
+        label: "找回密码",
+        link: "/recoverPwd"
     },{
         path: '/',
         name: 'Aboutus',

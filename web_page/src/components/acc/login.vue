@@ -22,7 +22,7 @@
                 </div>
                 <div class="columns">
                     <p>
-                        密码 <router-link to="#" class="sign">找回密码</router-link><br/> 
+                        密码 <router-link to="/recoverPwd" class="sign">找回密码</router-link><br/> 
                         <n3-popover effect="fade" :header="false" placement="right" trigger="focus" >
                             <div slot="content" :class="[passwordStatus? 'danger_f': 'success_f']">
                                 {{passwordStatus ? '密码长度至少6位' : 'ok'}}
@@ -108,7 +108,7 @@ export default {
                 this.$router.replace(this.$route.query.back)
                 } else {
                 this.$router.replace({
-                name: 'Index'
+                name: 'PersonalCenter'
                 })
             }
           }else{
@@ -120,19 +120,18 @@ export default {
                 width: '400px'
             })
           }
-          
         })
         .catch(error => {
           this.loading = false
           this.n3Alert({
-            content: error || '网络繁忙请重试!',
+            content:'网络繁忙请重试!',
             type: 'danger',
             placement: 'bottom',
             duration: 5000,
-            width: '4000px'
+            width: '400px'
           })
         })
-      }
+       }
   },
   created() {
     this.getAccount()
@@ -153,10 +152,11 @@ export default {
           }
       }
   }
-};
+}
 </script>
 <style lang="scss" scoped>
     .content .content_text{
-        margin-top: 5%;
+        margin-top: 40px;
+        margin-bottom: 40px;
     }
 </style>

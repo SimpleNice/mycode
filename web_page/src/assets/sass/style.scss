@@ -53,6 +53,7 @@ a.sign:hover{
 .icon{
     color: darken($all-color, 20%);
     margin-right: 10px;
+    vertical-align: text-bottom;
 }
 .icon_active{
     transform:rotate(-90deg);
@@ -161,16 +162,128 @@ a.sign:hover{
     color: darken($main-color, 20%);
 }
 //更改默认N3加载样式
-.n3-page-loading-con{
-    vertical-align: bottom;
-    margin-left: 5px;
-    i{
-        font-size: 14px;
-    }
-}
+// .n3-page-loading-con{
+//     // vertical-align: bottom;
+//     // margin-left: 5px;
+//     // i{
+//     //     font-size: 14px;
+//     // }
+// }
 .danger_f{
     color: $danger;
 }
+.danger_f:hover{
+    color: lighten($danger, 20%);
+}
 .success_f{
     color: $mark-color;
+}
+.n3-select-group .n3-dropdown-menu{
+    min-height: 100px;
+}
+.protocol{
+    font-size: 12px;
+    color: #414141;
+    font-weight: 500;
+    border-bottom: 1px solid #414141;
+    padding-bottom: 1px;
+    cursor: pointer;
+}
+.show_text_img{
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid lighten($all-color, 20%);
+    hr{
+        border-color: lighten($all-color, 20%);
+        margin: 10px 0px;
+    }
+}
+//我的发布状态文本域
+.my_status_insert{
+    margin: 0px;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border:none;
+    overflow: hidden;
+    resize: none;
+}
+.show_img{
+    .img_box{
+        position: relative;
+        width: 80px;
+        height: 80px;;
+        img{
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+}
+.del_img{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+.but_span{
+    padding: 3px 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #969696;
+}
+.but_span_border{
+    border: 1px solid lighten($all-color, 30%);
+}
+.dis_span{
+   background-color: lighten($all-color,20%);
+}
+.button-group{
+    padding: 10px 0 0;
+    .button-c{
+        color:lighten($all-color, 15%);
+        margin-right:5px; 
+    }
+    .button-c.active{
+        color: $mark-color;
+    }
+    .button-span{
+        margin-right: 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+}
+.box_title{
+    margin-top: 20px;
+    line-height: 30px;
+    color: $all-color;
+}
+//男
+.male{
+    color: #91d7f7;
+}
+//女
+.female{
+    color: #ffbcf9;
+}
+
+//回复文本框
+.reply_text{
+    .n3-form-control{
+        border-radius: 15px;
+        border-bottom-left-radius: 0px;
+    }
+}
+
+//刷新
+.ref{
+    color: $mark_color;
+    margin-left: 10px;
+    font-size: 16px;
+    text-shadow: 0px 0px 3px #ccc;
+}
+
+.edit{
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    font-size: 20px;
+    color: $all-color;
 }
