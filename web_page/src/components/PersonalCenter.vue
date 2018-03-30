@@ -178,7 +178,7 @@ import community from './component/community'
             }
         },
         created () {
-            this.tabsVal = storage.getItem(PERSONAL.PANEL)!==''? parseInt(storage.getItem(PERSONAL.PANEL)):0
+            this.tabsVal = storage.getItem(PERSONAL.PANEL)!==null? parseInt(storage.getItem(PERSONAL.PANEL)):0
         }
     }
 </script>

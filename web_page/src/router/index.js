@@ -23,19 +23,19 @@ router.beforeEach((to,from,next)=>{
   }else if(storage.getItem(STORAGE_KEY.ADDRESSLIST)==null){
     storage.setItem(STORAGE_KEY.ADDRESSLIST,JSON.stringify(ADDRESSLIST))
   }
-  // if((Date.now()-lastLogin) <= MAX_LOGIN_AGE){
-  //   store.dispatch('setLoginStatus',true)
-  //   return next()
-  // }else{
-  //   if(NoLogin.indexOf(to.matched[0].name)>-1){
-  //     return next()
-  //   }else{
-  //     store.dispatch('setLoginStatus',false)
-  //     return next({
-  //       name: 'login'
-  //     })
-  //   } 
-  // }
+  if((Date.now()-lastLogin) <= MAX_LOGIN_AGE){
+    store.dispatch('setLoginStatus',true)
+    return next()
+  }else{
+    if(NoLogin.indexOf(to.matched[0].name)>-1){
+      return next()
+    }else{
+      store.dispatch('setLoginStatus',false)
+      return next({
+        name: 'login'
+      })
+    } 
+  }
   return next()
 })
 router.afterEach(transition => {

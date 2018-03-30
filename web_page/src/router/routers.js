@@ -11,15 +11,20 @@ import Reg from '@/components/acc/reg'
 import RecoverPwd from '@/components/acc/recoverPwd'
 import PersonalCenter from '@/components/PersonalCenter'
 // import SearchSel from '@/components/searchSel'
-//健康状态
 import Health from '@/components/Health' //健康状态
 import myInformation from '@/components/health/myInformation' //我的信息
 import HealthDiary from '@/components/health/healthDiary' //健康日记
 import Majorillness from '@/components/health/majorillness' //主要病症
 import MyChart from '@/components/health/myChart'//我的图标
-import MySymptoms from '@/components/health/mySymptoms' //我的症状
 import MyTreatment from '@/components/health/myTreatment'//我的治疗
 import CheckingData from '@/components/health/checkingData' //检查记录
+import CheckingDataAll from '@/components/health/checkingData/all' //所有检查记录
+import CheckingDataList from '@/components/health/checkingData/index' //检查记录
+import CheckingDataHistory from '@/components/health/checkingData/history' //检查历史
+import MySymptoms from '@/components/health/mySymptoms' //我的症状
+import mySymptomsList from '@/components/health/symptoms/index' //我的症状列表
+import mySymptomsUpdate from '@/components/health/symptoms/edit' //我的症状列表
+import mySymptomsHistory from '@/components/health/symptoms/history' //我的症状列表
 import Assess from '@/components/health/assess'//评估
 import Error from '@/view/404'
 const routers=[
@@ -79,10 +84,40 @@ const routers=[
                 path: '/health/checkingData',
                 name: 'CheckingData',
                 component: CheckingData,
+                redirect: '/health/checkingData/list',  
                 show:false,
                 logshow:false,
                 label:"检查记录",
                 link:"/health/checkingData",
+                children:[
+                    {
+                        path: '/health/checkingData/list',
+                        name: 'CheckingDataList',
+                        component: CheckingDataList,
+                        show:false,
+                        logshow:false,
+                        label:"检查记录列表",
+                        link:"/health/checkingData/list",
+                    },
+                    {
+                        path: '/health/checkingData/all',
+                        name: 'CheckingDataAll',
+                        component: CheckingDataAll,
+                        show:false,
+                        logshow:false,
+                        label:"所有的检查项",
+                        link:"/health/checkingData/all",
+                    },
+                    {
+                        path: '/health/checkingData/history/:id',
+                        name: 'CheckingDataHistory',
+                        component: CheckingDataHistory,
+                        show:false,
+                        logshow:false,
+                        label:"检查历史",
+                        link:"/health/checkingData/history",
+                    }
+                ]
             },
             {
                 path: '/health/myChart',
@@ -96,11 +131,40 @@ const routers=[
             {
                 path: '/health/mySymptoms',
                 name: 'MySymptoms',
-                component: myInformation,
+                component: MySymptoms,
+                redirect: '/health/mySymptoms/list',
                 show:false,
                 logshow:false,
                 label:"我的症状",
                 link:"/health/mySymptoms",
+                children:[
+                    {
+                        path: '/health/mySymptoms/list',
+                        name: 'mySymptomsList',
+                        component: mySymptomsList,
+                        show:false,
+                        logshow:false,
+                        label:"检查记录列表",
+                        link:"/health/mySymptoms/list",
+                    },
+                    {
+                        path: '/health/mySymptoms/update',
+                        name: 'mySymptomsUpdate',
+                        component: mySymptomsUpdate,
+                        show:false,
+                        logshow:false,
+                        label:"更新我的症状",
+                        link:"/health/mySymptoms/update",
+                    },{
+                        path: '/health/mySymptoms/history/:id',
+                        name: 'mySymptomsHistory',
+                        component: mySymptomsHistory,
+                        show:false,
+                        logshow:false,
+                        label:"更新我的症状",
+                        link:"/health/mySymptoms/history",
+                    }
+                ]
             },
             {
                 path: '/health/myTreatment',
@@ -182,7 +246,7 @@ const routers=[
                 link:"/treatment/list",
             },
             {
-                path: '/treatment/survey',
+                path: '/treatment/survey/:id',
                 name: 'TreatmentSurvey',
                 component: TreatmentSurvey,
                 show:false,

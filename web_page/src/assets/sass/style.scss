@@ -38,6 +38,9 @@
 .text_1{
     color: darken($all-color,10%);
 }
+.text_2{
+    color: darken($all-color,20%);
+}
 .mark_a{
     color: $mark-color;
 }
@@ -286,4 +289,63 @@ a.sign:hover{
     position: absolute;
     font-size: 20px;
     color: $all-color;
+}
+.no_top{
+    margin-top: 0;
+}
+//标签
+.tabs_label{
+    padding: 3px 12px;
+    background: lighten($mark-color,10%);
+    color: $white;
+    border-radius: 3px; 
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.tabs_label:hover{
+    background: $mark-color;
+}
+.explain{
+    text-align: right;
+}
+.mark_color1{
+    color: #3BAE4F;
+}
+.mark_color2{
+    color: #FEDC32;
+}
+.mark_color3{
+    color: #FF8F02;
+}
+.mark_color4{
+    color: #D93019;
+}
+.mark_bg1{
+   background-color: #3BAE4F;
+}
+.mark_bg2{
+   background-color: #FEDC32;
+}
+.mark_bg3{
+   background-color: #FF8F02;
+}
+.mark_bg4{
+   background-color: #D93019;
+}
+.item{
+    width: 120px;
+    text-align: center;
+    label{
+        border: 1px solid #ccc;
+        padding: 0px 20px;
+        border-radius: 2px;
+    }
+    label:hover{
+        background-color: #dfdfdf;
+    }
+    .active{
+        color: #fff;
+        border: 0px;
+    }
 }

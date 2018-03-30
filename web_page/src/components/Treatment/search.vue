@@ -26,7 +26,7 @@
                     <caption>{{item.className}}</caption>
                     <thead><th class="align-left">治疗</th><th class="align-right">使用</th></thead>
                     <tbody v-for="list in item.list">
-                        <tr><td class="align-left"><router-link :to="'/treatment/'+list.id">{{list.name}}</router-link> </td><td class="align-right">{{list.num}}</td></tr>
+                        <tr><td class="align-left"><router-link :to="'./survey/'+list.id">{{list.name}}</router-link> </td><td class="align-right">{{list.num}}</td></tr>
                     </tbody>
                 </table>
                 <p>

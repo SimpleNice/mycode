@@ -590,13 +590,24 @@ a:hover{
     margin-top: 20px;
     table{
         width: 100%;
+        caption{
+            color:darken($all-color,35%);
+            margin-bottom: 10px;
+            h3{
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
         th{
             padding-bottom: 5px;
+            vertical-align: bottom;
+            padding-left: 8px;
         }
         tr{
             border-top: 1px solid lighten($all-color,10%);
             td{
                 padding: 15px 0;
+                padding-left: 8px;
             }
             td:last-child{
                 font-size: 16px;
@@ -650,6 +661,21 @@ a:hover{
     .story{
         margin-top: 10px;
         text-align: right;
+    }
+    .columns_header{
+        padding: 20px;
+        background-color: lighten($all-color, 35.6666%);
+        .n3-input-con{
+            margin-top: 20px;
+        }
+    }
+    .columns_text{
+        background-color: $white;
+    }
+}
+.container{
+    .columns{
+        margin-top: 20px;
     }
 }
 @media screen and (max-width:1024px){

@@ -28,50 +28,61 @@
           </div>
       </div>
       <n3-aside  placement="right" title="添加/编辑住院信息" width="360px" ref="asideRight" :header="true" class="asideRight">
-            <div class="text">
-                <p>将您的住院日期和目的添加到您的个人资料，以便其他患者可以了解您的治疗过程.</p>
-                <hr/>
-            </div>
-           <div class="inputLine">
-                <label class="text_1">你什么时候发现生病的?</label></br>
-                <n3-datepicker
-                format="yyyy-MM-dd"
+        <div class="text">
+            <p>将您的住院日期和目的添加到您的个人资料，以便其他患者可以了解您的治疗过程.</p>
+            <hr/>
+        </div>
+        <div class="inputLine">
+            <n3-typeahead 
+                async
+                v-model="model.disease"
+                placeholder="输入你的病症"
+                @change="getResult"
+                :items="items"
+                :add-format="getValue"
                 width="300px"
-                v-model="model.sickTime">
-                </n3-datepicker>
-            </div>
-            <div class="inputLine">
-                <label class="text_1">住院了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有" v-model="status.beInHospitalStatus"></n3-switch></br>
-                <n3-datepicker
-                format="yyyy-MM-dd"
-                width="300px"
-                v-model="model.beInHospitalTime"
-                v-show="status.beInHospitalStatus">
-                </n3-datepicker>
-            </div>
-            <div class="inputLine">
-                <label class="text_1">你已经出院了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有" v-model="status.leaveHospitalStatus"></n3-switch> </br>
-                <n3-datepicker
-                format="yyyy-MM-dd"
-                width="300px"
-                v-model="model.leaveHospitalTime"
-                v-show="status.leaveHospitalStatus">
-                </n3-datepicker>
-            </div>
-            <div class="inputLine">
-                <label class="text_1">治愈了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有"  v-model="status.cureStatus"></n3-switch></br>
-                <n3-datepicker
-                format="yyyy-MM-dd"
-                width="300px"
-                v-model="model.cureTime"
-                v-show="status.cureStatus">
-                </n3-datepicker>
-            </div>
-            <div class="story">
-                <n3-button type="primary" size="sm" @click.native="save">保存住院信息</n3-button>
-                <n3-button size="sm" style="margin-left:10px;" @click.native="cache">取消</n3-button>
-            </div>
-        </div>    
+                class="typeahead">
+            </n3-typeahead>
+        </div>
+        <div class="inputLine">
+            <label class="text_1">你什么时候发现生病的?</label></br>
+            <n3-datepicker
+            format="yyyy-MM-dd"
+            width="300px"
+            v-model="model.sickTime">
+            </n3-datepicker>
+        </div>
+        <div class="inputLine">
+            <label class="text_1">住院了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有" v-model="status.beInHospitalStatus"></n3-switch></br>
+            <n3-datepicker
+            format="yyyy-MM-dd"
+            width="300px"
+            v-model="model.beInHospitalTime"
+            v-show="status.beInHospitalStatus">
+            </n3-datepicker>
+        </div>
+        <div class="inputLine">
+            <label class="text_1">你已经出院了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有" v-model="status.leaveHospitalStatus"></n3-switch> </br>
+            <n3-datepicker
+            format="yyyy-MM-dd"
+            width="300px"
+            v-model="model.leaveHospitalTime"
+            v-show="status.leaveHospitalStatus">
+            </n3-datepicker>
+        </div>
+        <div class="inputLine">
+            <label class="text_1">治愈了吗?</label>&nbsp;&nbsp;<n3-switch ontext="是" offtext="没有"  v-model="status.cureStatus"></n3-switch></br>
+            <n3-datepicker
+            format="yyyy-MM-dd"
+            width="300px"
+            v-model="model.cureTime"
+            v-show="status.cureStatus">
+            </n3-datepicker>
+        </div>
+        <div class="story">
+            <n3-button type="primary" size="sm" @click.native="save">保存住院信息</n3-button>
+            <n3-button size="sm" style="margin-left:10px;" @click.native="cache">取消</n3-button>
+        </div>
      </n3-aside>
   </section>
 </template>
@@ -89,6 +100,7 @@
                     {diseaseID:'6',disease:'纤维肌痛',sickTime:"2018年3月20日",cureTime:"2018-3-26",beInHospitalTime:"2018年3月22日",leaveHospitalTime:"2018年3月26日"},
                 ],
                 model:{
+                    disease:'',
                     diseaseID:'',
                     sickTime:'',
                     beInHospitalTime:'',
@@ -99,7 +111,8 @@
                     beInHospitalStatus:false,
                     leaveHospitalStatus:false,
                     cureStatus:false
-                }
+                },
+                items:[]
             }
         },
         methods:{
@@ -133,6 +146,12 @@
             },
             cache(){
                 this.$refs.asideRight.close()
+            },
+            getValue(){
+
+            },
+            getResult(){
+                
             }
         }
     }
