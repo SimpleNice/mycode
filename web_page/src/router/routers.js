@@ -1,6 +1,8 @@
 import IndexView from '@/components/Index'
 import Patient from '@/components/Patient'
 import Symptom from '@/components/Symptom'
+import SymptomList from '@/components/Symptom/index'
+import SymptomSurvey from '@/components/Symptom/survey'
 import Expert from '@/components/Expert'
 import Treatment from '@/components/Treatment'
 import TreatmentList from '@/components/Treatment/browse'
@@ -16,7 +18,6 @@ import myInformation from '@/components/health/myInformation' //我的信息
 import HealthDiary from '@/components/health/healthDiary' //健康日记
 import Majorillness from '@/components/health/majorillness' //主要病症
 import MyChart from '@/components/health/myChart'//我的图标
-import MyTreatment from '@/components/health/myTreatment'//我的治疗
 import CheckingData from '@/components/health/checkingData' //检查记录
 import CheckingDataAll from '@/components/health/checkingData/all' //所有检查记录
 import CheckingDataList from '@/components/health/checkingData/index' //检查记录
@@ -25,8 +26,21 @@ import MySymptoms from '@/components/health/mySymptoms' //我的症状
 import mySymptomsList from '@/components/health/symptoms/index' //我的症状列表
 import mySymptomsUpdate from '@/components/health/symptoms/edit' //我的症状列表
 import mySymptomsHistory from '@/components/health/symptoms/history' //我的症状列表
+import MyTreatment from '@/components/health/myTreatment'//我的治疗
+import myTreatmentIndex from '@/components/health/mytreatment/index'//我的治疗--首页
+import myTreatmentEvaluate from '@/components/health/mytreatment/evaluate'//我的治疗--评估
+import myTreatmentHistory from '@/components/health/mytreatment/history'//我的治疗--历史
 import Assess from '@/components/health/assess'//评估
 import Error from '@/view/404'
+import HomePage from '@/view/homePage'
+import Community from '@/components/community'
+import CommunityIndex from '@/components/community/index'
+import CommunityCodeOfConduct from '@/components/community/codeOfConduct'
+import CommunityManage from '@/components/community/manage'
+import CommunityMyTopic from '@/components/community/myTopic'
+import CommunityTopicContent from '@/components/community/topicContent'
+import CommunityMyCommunity from '@/components/community/myCommunity'
+import CommunityUpdate from '@/components/community/update'
 const routers=[
     {
         path: '/',
@@ -170,10 +184,40 @@ const routers=[
                 path: '/health/myTreatment',
                 name: 'MyTreatment',
                 component: MyTreatment,
+                redirect: '/health/myTreatment/index',
                 show:false,
                 logshow:false,
                 label:"我的治疗",
                 link:"/health/myTreatment",
+                children:[
+                    {
+                        path: '/health/myTreatment/index',
+                        name: 'myTreatmentIndex',
+                        component: myTreatmentIndex,
+                        show:false,
+                        logshow:false,
+                        label:"首页",
+                        link:"/health/myTreatment/index",
+                    },
+                    {
+                        path: '/health/myTreatment/history/:id',
+                        name: 'myTreatmentHistory',
+                        component: myTreatmentHistory,
+                        show:false,
+                        logshow:false,
+                        label:"跟踪历史",
+                        link:"/health/myTreatment/history",
+                    },
+                    {
+                        path: '/health/myTreatment/evaluate/:id',
+                        name: 'myTreatmentEvaluate',
+                        component: myTreatmentEvaluate,
+                        show:false,
+                        logshow:false,
+                        label:"评估",
+                        link:"/health/myTreatment/evaluate",
+                    },
+                ]
             },
             {
                 path: '/health/assess',
@@ -194,21 +238,110 @@ const routers=[
         label:"病友",
         link:"/patient"
     },{
-        path: '/',
+        path: '/community',
         name: 'Community',
-        component: IndexView,  
+        component: Community,  
+        redirect: '/community/index/:id?',
         show:true,
         logshow:true,
         label:"社区",
-        link:"/"
+        link:"/community",
+        children:[
+            {
+                path: '/community/index/:id?',
+                name: 'CommunityIndex',
+                component: CommunityIndex,  
+                show:false,
+                logshow:false,
+                label:"社区首页",
+                link:"/community/index",
+            },
+            {
+                path: '/community/codeOfConduct',
+                name: 'CommunityCodeOfConduct',
+                component: CommunityCodeOfConduct,  
+                show:false,
+                logshow:false,
+                label:"行为守则",
+                link:"/community/codeOfConduct", 
+            },
+            {
+                path: '/community/topicContent/:id',
+                name: 'CommunityTopicContent',
+                component: CommunityTopicContent,  
+                show:false,
+                logshow:false,
+                label:"话题内容",
+                link:"/community/topicContent", 
+            },
+            {
+                path: '/community/update/:id?',
+                name: 'CommunityUpdate',
+                component: CommunityUpdate,  
+                show:false,
+                logshow:false,
+                label:"编辑/新增话题",
+                link:"/community/update", 
+            },
+            {
+                path: '/community/manage',
+                name: 'CommunityManage',
+                component: CommunityManage,
+                redirect: '/community/manage/myCommunity',  
+                show:false,
+                logshow:false,
+                label:"管理我的论坛和话题",
+                link:"/community/manage", 
+                children:[
+                    {
+                        path: '/community/manage/myCommunity',
+                        name: 'CommunityMyCommunity',
+                        component: CommunityMyCommunity,  
+                        show:false,
+                        logshow:false,
+                        label:"我的社区",
+                        link:"/community/manage/myCommunity", 
+                    },
+                    {
+                        path: '/community/manage/myTopic',
+                        name: 'CommunityMyTopic',
+                        component: CommunityMyTopic,  
+                        show:false,
+                        logshow:false,
+                        label:"我的话题",
+                        link:"/community/manage/myTopic", 
+                    }
+                ]
+            }
+        ]
     },{
         path: '/symptom',
         name: 'Symptom',
         component: Symptom,
+        redirect:'/symptom/index',  
         show:true,
         logshow:false,
         label:"症状",
-        link:"/symptom"
+        link:"/symptom",
+        children:[
+            {
+                path: '/symptom/index',
+                name: 'SymptomList',
+                component: SymptomList,
+                show:false,
+                logshow:false,
+                label:"症状",
+                link:"/symptom/index"
+            },{
+                path: '/symptom/survey/:id',
+                name: 'SymptomSurvey',
+                component: SymptomSurvey,
+                show:false,
+                logshow:false,
+                label:"评估报告",
+                link:"/symptom/survey"
+            }
+        ]
     },{
         path: '/expert',
         name: 'Expert',
@@ -287,6 +420,14 @@ const routers=[
         logshow:false,
         label:"关于我们",
         link:"/"
+    },{
+        path: '/homepage/:id',
+        name: 'HomePage',
+        component: HomePage,
+        show:false,
+        logshow:false,
+        label:"个人主页",
+        link:"/homepage"
     },{
         path: '*',
         name:'404',

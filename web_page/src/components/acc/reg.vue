@@ -186,6 +186,7 @@ export default {
                 return false
             }    
         }
+        alert(1)
         if(!this.phoneStatus){
             this.lastTime= 60
             this.codeMsg="重新获取"
@@ -232,7 +233,7 @@ export default {
                     }
                 }) 
                 .then((response) => {
-                    if(response.ret_code!==0){
+                    if(response.data.ret_code!==0){
                         this.phoneStatus = true
                         this.phoneMSG = response.ret_msg
                         this.$refs.phone.focus()
@@ -274,9 +275,9 @@ export default {
                 }
             }) 
             .then((response) => {
-                if(response.ret_code!==0){
+                if(response.data.ret_code!==0){
                     this.codeStatus = true
-                    this.codeCheckMSG = response.ret_msg
+                    this.codeCheckMSG = response.data.ret_msg
                     this.$refs.code.focus()
                 }else{
                     this.codeStatus = false
@@ -324,7 +325,7 @@ export default {
         this.$http.post(REGUSER,qs.stringify(param))
         .then(data => {
           this.loading = false
-          if(data.ret_code == 0){
+          if(data.data.ret_code == 0){
             let self = this
             this.n3Modal.alert({
                 title: '提示消息',
@@ -340,7 +341,7 @@ export default {
           }else{
             this.n3Modal.alert({
                 title: '提示消息',
-                message: data.ret_msg,
+                message: data.data.ret_msg,
                 effect: 'fade',
                 type: 'danger'
             })

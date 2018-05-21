@@ -102,9 +102,9 @@
                                     <img :src="item.headPortrait" >
                                 </div>
                                 <div class="user">
-                                     <span class="sign">{{item.name}}</span></br>
-                                     <span class="text text_1"><n3-icon type="mars" title="先生" class="male" v-if="item.sex == '1'"></n3-icon><n3-icon type="venus" class="female" title="女士" v-else></n3-icon></span>
-                                     <span class="text text_1">{{item.age}}岁</span></br>
+                                     <span><router-link :to="'/homepage/'+item.id" class="sign">{{item.name}}</router-link></span>
+                                     <span class="text text_1"><n3-icon type="mars" title="先生" class="male" v-if="item.sex == '1'"></n3-icon><n3-icon type="venus" class="female" title="女士" v-else></n3-icon></span></br>
+                                     <span class="text text_1"><n3-icon :type="item.star >=1? 'star':'star-o'" class="star"></n3-icon><n3-icon :type="item.star >=2? 'star':'star-o'" class="star"></n3-icon><n3-icon :type="item.star >=3? 'star':'star-o'" class="star"></n3-icon></span><span class="text text_1 nobold">{{item.age}}岁</span>
                                 </div>
                                
                             </td>
@@ -148,6 +148,7 @@ export default {
           sex: "0",
           last_time: "2018-01-30",
           age: "20",
+          star:2,
           symptom: [
             { sid: 1, name: "脑膜炎" },
             { sid: 2, name: "智障" },
@@ -163,6 +164,7 @@ export default {
           last_time: "2018-01-30",
           age: "20",
           disease: "脑膜炎",
+          star:1,
           symptom: [
             { sid: 1, name: "脑膜炎" },
             { sid: 2, name: "智障" },
@@ -178,6 +180,7 @@ export default {
           last_time: "2018-01-30",
           age: "20",
           disease: "脑膜炎",
+          star:3,
           symptom: [
             { sid: 1, name: "脑膜炎" },
             { sid: 2, name: "智障" },
@@ -193,6 +196,7 @@ export default {
           last_time: "2018-01-30",
           age: "20",
           disease: "脑膜炎",
+          star:2,
           symptom: [
             { sid: 1, name: "脑膜炎" },
             { sid: 2, name: "智障" },
@@ -208,6 +212,7 @@ export default {
           last_time: "2018-01-30",
           age: "20",
           disease: "脑膜炎",
+          star:3,
           symptom: [
             { sid: 1, name: "脑膜炎" },
             { sid: 2, name: "智障" },

@@ -53,3 +53,14 @@ export const ADDRESS={
     CITY: IP + '/account/city/list',
     AREA: IP + '/account/area/list',
 }
+//社区 
+export const COMMENT ={
+    POST_LIST: IP + '/comment/post/list', //帖子列表 POST
+    POST_PROFILE: IP + '/comment/post/profile', //帖子详情 POST
+    USER_FOLLOW: IP + '/comment/user/follow', //关注 POST
+    USER_NO_FOLLOW: IP + '/comment/user/no-follow' , //取消关注 POST
+    EDIT_POST: IP + '/comment/user/post', //发布编辑帖子 POST
+    DEL_POST : IP + '/comment/user/post', //删除帖子 请求方式 DELETE
+    REPLY_POST: IP + '/comment/user/post-reply', //评论回复 POST
+    REPLY_LIST: IP + '/comment/replyid/list', //评论回复列表 GET
+}

@@ -11,9 +11,9 @@
           <span class="btn mark_btn" @click="reg">注册账号</span>
         </div>
        <div class="oper text" v-else>
-          <a class="mark_a" href="#">落花浅忆</a> |
+          <router-link to="/PersonalCenter/" class="mark_a">落花浅忆</router-link>|
           <a href="#">常见问题</a> |
-          <a href="#">退出</a>
+          <a href="javascript:void(0)" @click="logout">退出</a>
         </div>
       </div>
       <div class="top-menu">
@@ -36,8 +36,7 @@ export default {
   naem: "top",
   data() {
     return {
-      list: routers,
-      
+      list: routers,  
     }
   },
   created() {
@@ -48,6 +47,12 @@ export default {
     },
     reg(){
       this.$router.push({name:'reg'})
+    },
+    logout(){
+      storage.removeItem(STORAGE_KEY.TOKEN)
+      storage.removeItem(STORAGE_KEY.LAST_LOGIN_TIME)
+      this.$store.dispatch('setLoginStatus',false)
+      this.$router.push({name:'Index'})
     }
   }
 };

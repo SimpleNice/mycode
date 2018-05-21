@@ -6,6 +6,11 @@
     line-height: 33px;
     display: inline-block;
 }
+.btn_s{
+    padding: 0px 6px;
+    border-radius: 3px;
+    font-size: 14px;;
+}
 .general_btn{
     background-color: $white;
     @include btn-border($all-color);
@@ -182,7 +187,7 @@ a.sign:hover{
     color: $mark-color;
 }
 .n3-select-group .n3-dropdown-menu{
-    min-height: 100px;
+    min-height: 150px;
 }
 .protocol{
     font-size: 12px;
@@ -348,4 +353,29 @@ a.sign:hover{
         color: #fff;
         border: 0px;
     }
+}
+.label_group{
+    padding: 5px 0 20px 0; 
+    label{
+        margin-right: 5px;
+        border-radius: 2px;
+        background-color: #efefee;
+        padding: 3px 5px;
+        margin-top: 5px;
+    }
+    label.oper{
+        background-color: #fff;
+        border: 1px solid #efefee;
+        color: #b1b1b1;
+        cursor: pointer;
+    }
+    .pointer{
+         cursor: pointer;
+    }
+}
+.bold{
+    font-weight: 600;
+}
+.star{
+  color: $mark-color;
 }

@@ -1,11 +1,27 @@
 <template>
    <section class="content"> 
      <div class="item-search">
+       圈子:&nbsp;&nbsp;
+        <n3-select v-model="searchArr.multiple" :options="fruitOptions" :search="true" multiple input-placeholder="请输入关键字" :limit="5" @change="multipleChan" ></n3-select>
+     </div>
+     <div class="item-search">
        标题:&nbsp;&nbsp;
        <n3-input v-model="searchArr.value" ref="input" placeholder="请输入标题" width="280px"></n3-input>&nbsp;&nbsp;
        排序:&nbsp;&nbsp;
        <n3-select v-model="searchArr.sort" :options="sort"></n3-select>
-       <n3-button type="primary" style="margin-left:20px;" @click.native="search" class="item-vertical">搜索</n3-button>
+     </div>
+     <div class="item-search">
+       时间:&nbsp;&nbsp;
+        <n3-datepicker
+          v-model="searchArr.start"
+          format="yyyy-MM-dd" placeholder="请选择开始时间">
+        </n3-datepicker>
+        &nbsp;&nbsp;-至-&nbsp;&nbsp;
+        <n3-datepicker
+          v-model="searchArr.end"
+          format="yyyy-MM-dd" placeholder="请选择结束时间">
+        </n3-datepicker>
+        <n3-button type="primary" style="margin-left:20px;" @click.native="search" class="item-vertical">搜索</n3-button>
      </div>
      <n3-data-table
       :source="source"
@@ -41,74 +57,67 @@ export default {
       source:[
         {
         id:1,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
+        authorId:2,
+        circleId:5, 
+        title:'帕金森综合症',
         content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        author:'落花浅忆',
+        circle:'帕金森',
+        reply:20000,
+        helpful:100,
         status:1
         },
         {
         id:2,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
+        authorId:2,
+        circleId:5,
+        title:'帕金森综合症',
         content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
-        status:1
+        author:'落花浅忆',
+        circle:'帕金森',
+        reply:200,
+        helpful:100,
+        status:0
         },
         {
         id:3,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
+        authorId:2,
+        circleId:5,
+        title:'帕金森综合症',
         content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        author:'落花浅忆',
+        circle:'帕金森',
+        reply:200,
+        helpful:100,
         status:1
-        },
-        {
+        },{
         id:4,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
+        authorId:2,
+        circleId:5,
+        title:'帕金森综合症',
         content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
-        status:1
-        },
-        {
+        author:'落花浅忆',
+        circle:'帕金森',
+        reply:200,
+        helpful:100,
+        status:0
+        },{
         id:5,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
+        authorId:2,
+        circleId:5,
+        title:'帕金森综合症',
         content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        author:'落花浅忆',
+        circle:'帕金森',
+        reply:200,
+        helpful:100,
         status:1
-        },
+        }
         ],
       columns:[
         {
@@ -117,9 +126,9 @@ export default {
           width: '8%'
         },
         { 
-          title: '社区名称',
+          title: '话题',
           dataIndex: 'title',
-          width:'18%',
+          width:'24%',
           render: (text,record)=>{
             return `<router-link to="detail/${record.id}" target="_blank">
                       <n3-tooltip content="${record.content}" placement="top" trigger="hover" class="text-tooltip">
@@ -129,46 +138,37 @@ export default {
           }
         },
         { 
-          title: '版主',
-          dataIndex: 'moderator',
+          title: '作者',
+          dataIndex: 'author',
           width:'18%',
           render:(text,record) =>{
-            return `<router-link to="detail/${record.moderatorId}" target="_blank">
+            return `<router-link to="detail/${record.authorId}" target="_blank">
                       <span  class="span_oper select">${text}</span>
                     </router-link>
-                      <span class="table-time">${record.moderatorTime}</span>`
+                      <span class="table-time">${record.createTime}</span>`
           }
         },
         {
-          title: '创建人',
-          dataIndex: 'createUser',
-          width: '18%',
+          title: '圈子',
+          dataIndex: 'circle',
+          width: '12%',
           render:(text,record) =>{
-            return `<router-link to="detail/${record.createUser}" target="_blank">
+            return `<router-link to="detail/${record.circleId}" target="_blank">
                       <span  class="span_oper select">${text}</span>
-                    </router-link>
-                    <span class="table-time">${record.createTime}</span>`
+                    </router-link>`
           }
         },
         { 
-          title: '成员',
-          dataIndex: 'member',
+          title: '回复',
+          dataIndex: 'reply',
           width:'12%',
-          render:(text,record)=>{ //连接到会员管理列表
-            return `<router-link to="topic/${record.id}">
-                      <span  class="span_oper select">${text}</span>
-                    </router-link>`
-            }
+          render:(text)=>`<n3-icon type="comments-o" size="16px"></n3-icon> ${text}`
         },
         {
-          title: "话题",
+          title: "有帮助",
           width: "12%",
-          dataIndex: "topic",
-          render:(text,record)=>{
-            return `<router-link to="topic/${record.id}">
-                      <span  class="span_oper select">${text}</span>
-                    </router-link>`
-          }
+          dataIndex: "helpful",
+          render:(text)=>`<n3-icon type="thumbs-o-up" size="16px"></n3-icon> ${text}`
         },
         {
           title: "操作",
@@ -176,9 +176,19 @@ export default {
           render: (text, record, index) => {
             let status = record.status 
             let titles = status ? '置顶话题优先显示在最前面' : '取消置顶'
-            return `<span  class="span_oper dis" title="删除社区" @click="dis(${text},${status},${index})">删除</span>`;
+            return `<span :class="[${status} ? 'edit' : 'enable', 'span_oper']" @click="dis(${text},${status},${index})" title="${titles}">{{${status} ? '置顶' : '取消'}}</span>|
+                    <span  class="span_oper dis" title="删除话题" @click="dis(${text},${status},${index})">删除</span>`;
           }
         }],
+      fruitOptions:[
+        {value:0,label:'请选择圈子'},
+        {value:1,label:'XXX圈子'},
+        {value:2,label:'XXX圈子'},
+        {value:3,label:'XXX圈子'},
+        {value:4,label:'XXX圈子'},
+        {value:5,label:'XXX圈子'},
+        {value:6,label:'XXX圈子'}
+      ], 
       sort:[
         {value:0,label:'请选择排序方式'},
         {value:1,label:'回复量'},

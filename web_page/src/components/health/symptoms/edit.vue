@@ -18,7 +18,6 @@
           </div>
           <div class="columns_table no_top">
               <table>
-                    <caption>严重程度:</caption>
                     <thead>
                         <th>症状</th>
                         <th class="item">没有</th>

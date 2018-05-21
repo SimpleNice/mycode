@@ -1,10 +1,14 @@
 <template>
    <section class="content"> 
      <div class="item-search">
-       标题:&nbsp;&nbsp;
-       <n3-input v-model="searchArr.value" ref="input" placeholder="请输入标题" width="280px"></n3-input>&nbsp;&nbsp;
-       排序:&nbsp;&nbsp;
-       <n3-select v-model="searchArr.sort" :options="sort"></n3-select>
+       圈子:&nbsp;&nbsp;
+        <n3-select v-model="searchArr.community" :options="fruitOptions" :search="true" input-placeholder="请输入关键字" :limit="5"></n3-select>
+     </div>
+     <div class="item-search">
+       昵称:&nbsp;&nbsp;
+       <n3-input v-model="searchArr.nickName" ref="input" placeholder="请输入昵称" width="280px"></n3-input>&nbsp;&nbsp;
+       性别:&nbsp;&nbsp;
+       <n3-select v-model="searchArr.sex" :options="sort"></n3-select>
        <n3-button type="primary" style="margin-left:20px;" @click.native="search" class="item-vertical">搜索</n3-button>
      </div>
      <n3-data-table
@@ -40,75 +44,77 @@ export default {
       loading:false,
       source:[
         {
-        id:1,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
-        content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
+        id:1, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
         status:1
         },
         {
-        id:2,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
-        content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
+        id:2, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
         status:1
         },
         {
-        id:3,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
-        content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
+        id:3, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
         status:1
         },
         {
-        id:4,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
-        content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
+        id:4, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
         status:1
         },
         {
-        id:5,
-        moderatorId:2,
-        userId:2,
-        title:'帕金森',
-        content:'帕金森病又称特发性帕金森病(idiopathic Parkinson’s disease，PD)，简称Parkinson病...',
-        moderator:'落花浅忆',
-        moderatorTime:'2018-4-23',
-        createUser:'落花浅忆',
+        id:5, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
         createTime:'2017-08-25',
-        member:20000,
-        topic:2000,
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
         status:1
         },
+        {
+        id:6, 
+        nickName:'落花浅忆',
+        desc:'我是一名68岁的男性，2006年12月被迫退休。我得到了我的局部放疗诊断，同时获得了关于手术的第二个意见...',
+        name:'王小二',
+        createTime:'2017-08-25',
+        lastTime:'2018-4-24',
+        sex:'0',
+        community:10,
+        topic:100,
+        status:1
+        }
         ],
       columns:[
         {
@@ -117,58 +123,50 @@ export default {
           width: '8%'
         },
         { 
-          title: '社区名称',
-          dataIndex: 'title',
+          title: '昵称',
+          dataIndex: 'nickName',
           width:'18%',
           render: (text,record)=>{
-            return `<router-link to="detail/${record.id}" target="_blank">
-                      <n3-tooltip content="${record.content}" placement="top" trigger="hover" class="text-tooltip">
-                        <span  class="span_oper select" title="点击查看文章内容">${text}</span>
+            return `<router-link to="detail/${record.id}">
+                      <n3-tooltip content="${record.desc}" placement="top" trigger="hover" class="text-tooltip">
+                        <span  class="span_oper select" title="点击查看会员详细">${text}</span>
                       </n3-tooltip>
                     </router-link>`
           }
         },
         { 
-          title: '版主',
-          dataIndex: 'moderator',
-          width:'18%',
+          title: '真实姓名',
+          dataIndex: 'name',
+          width:'12%',
           render:(text,record) =>{
-            return `<router-link to="detail/${record.moderatorId}" target="_blank">
+            return `<router-link to="detail/${record.id}">
                       <span  class="span_oper select">${text}</span>
-                    </router-link>
-                      <span class="table-time">${record.moderatorTime}</span>`
+                    </router-link>`
           }
         },
         {
-          title: '创建人',
-          dataIndex: 'createUser',
-          width: '18%',
-          render:(text,record) =>{
-            return `<router-link to="detail/${record.createUser}" target="_blank">
-                      <span  class="span_oper select">${text}</span>
-                    </router-link>
-                    <span class="table-time">${record.createTime}</span>`
-          }
+          title: '注册时间',
+          dataIndex: 'createTime',
+          width: '12%',
+          render:(text,record) =>`<span>${text}</span>`
         },
         { 
-          title: '成员',
-          dataIndex: 'member',
+          title: '最后活跃',
+          dataIndex: 'lastTime',
           width:'12%',
-          render:(text,record)=>{ //连接到会员管理列表
-            return `<router-link to="topic/${record.id}">
-                      <span  class="span_oper select">${text}</span>
-                    </router-link>`
-            }
+          render:(text)=>`<span>${text}</span>`
+        },
+        {
+          title: "社区",
+          width: "12%",
+          dataIndex: "community",
+          render:(text)=>`<n3-icon type="comments-o" size="16px"></n3-icon> ${text}`
         },
         {
           title: "话题",
           width: "12%",
           dataIndex: "topic",
-          render:(text,record)=>{
-            return `<router-link to="topic/${record.id}">
-                      <span  class="span_oper select">${text}</span>
-                    </router-link>`
-          }
+          render:(text)=>`<n3-icon type="comment-o" size="16px"></n3-icon> ${text}`
         },
         {
           title: "操作",
@@ -176,13 +174,23 @@ export default {
           render: (text, record, index) => {
             let status = record.status 
             let titles = status ? '置顶话题优先显示在最前面' : '取消置顶'
-            return `<span  class="span_oper dis" title="删除社区" @click="dis(${text},${status},${index})">删除</span>`;
+            return `<span :class="[${status} ? 'dis' : 'enable', 'span_oper']" @click="dis(${text},${status},${index})" title="${titles}">{{${status} ? '禁用' : '取消'}}</span>|
+                    <span  class="span_oper dis" title="删除话题" @click="dis(${text},${status},${index})">删除</span>`;
           }
         }],
+      fruitOptions:[
+        {value:0,label:'请选择圈子'},
+        {value:1,label:'XXX圈子'},
+        {value:2,label:'XXX圈子'},
+        {value:3,label:'XXX圈子'},
+        {value:4,label:'XXX圈子'},
+        {value:5,label:'XXX圈子'},
+        {value:6,label:'XXX圈子'}
+      ], 
       sort:[
-        {value:0,label:'请选择排序方式'},
-        {value:1,label:'回复量'},
-        {value:2,label:'有帮助'},
+        {value:0,label:'请选择性别'},
+        {value:1,label:'先生'},
+        {value:2,label:'女士'},
       ],
       pagination: {
         current: 1,
@@ -191,12 +199,9 @@ export default {
         pagesizeOpts: [12, 24, 36, 50]
       },
       searchArr:{
-        multiple:[0],
-        value:'',
-        sort:[0],
-        start:'',
-        end:''
-
+        community:0,
+        nickName:'',
+        sex:[0],
       },
       searchChanged:false
     }
@@ -273,18 +278,6 @@ export default {
           });
         });
     },
-    multipleChan(value){
-      let i = this.searchArr.multiple.indexOf(0)
-      let len =this.searchArr.multiple.length
-      if(i >-1 && len>1){
-        this.searchArr.multiple.splice(i,1)
-      }
-      if(len = 0){
-        this.searchArr.multiple.push(0)
-      }
-    }
-  },
-  watch: {
   }
 };
 </script>

@@ -9,6 +9,9 @@ $dange-color:#f35b5b;
 $enabel-color:#0498ab;
 $font-title-size:16px;
 $text-tootip-bg:#66aaf1;
+$female-color:#ffbcf9;
+$male-color:#51c1f5;
+$white:#fff;
 @mixin qy-box-shadow($px1,$px2,$px3,$color,$types:null,$px4:0px){
     -webkit-box-shadow: $types $px1 $px2 $px3 $px4 $color;
     -moz-box-shadow: $types $px1 $px2 $px3 $px4 $color;
@@ -253,6 +256,124 @@ h5{
     font-size: 11px;
     color: $right-top-fcolor;
     vertical-align: bottom;
+}
+.bold{
+    font-weight: 600;
+}
+.male{
+    color: $male-color;
+}
+.female{
+    color: $female-color;
+}
+.content_text{
+    .row{
+        position: relative;
+        p{
+            line-height: 30px;
+        }
+    }
+    .columns{
+        .n3-panel-heading{
+            background-color: $rigth-top-bgcolor;
+        }
+        .n3-panel-collapse{
+            border: 1px solid $rigth-top-bgcolor;
+        }
+        .n3-panel-title{
+            font-weight: 600;
+            color: $left-bgcolor;
+        }
+    }
+}
+.subject{
+    color: $left-bgcolor;
+    padding-right: 8px;
+    font-weight: 600;
+}
+.mg-left{
+    margin-left: 30px;
+}
+.mark_color1{
+    color: #3BAE4F;
+}
+.mark_color2{
+    color: #FEDC32;
+}
+.mark_color3{
+    color: #FF8F02;
+}
+.mark_color4{
+    color: #D93019;
+}
+.columns_table{
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    table{
+        width: 100%;
+        caption{
+            margin-bottom: 10px;
+            h3{
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+        th{
+            padding-bottom: 5px;
+            vertical-align: bottom;
+            padding-left: 8px;
+        }
+        th.th_time{
+            height: 110px;
+        }
+        tr{
+            border-top: 1px solid $rigth-top-bgcolor;
+            td{
+                padding: 15px 0;
+                padding-left: 8px;
+            }
+            td:last-child{
+                font-size: 16px;
+            }
+        }
+        .th_time{
+            width: 30px;
+            direction:rtl;
+            writing-mode: horizontal-tb;
+            text-align: center;
+            position: relative;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            .trans{
+                position: absolute;
+                bottom: 7px;
+                left: 5px;
+                writing-mode: tb-rl;
+                font-weight: 500;
+                color: #1C8BCF;
+            }
+        }
+        td.th_time{
+            padding-right:10px; 
+            padding-left:10px; 
+        }
+    }
+}
+.tabs_label{
+    padding: 3px 12px;
+    background: lighten($top-color,10%);
+    color: $white;
+    border-radius: 3px; 
+    font-size: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.tabs_label:hover{
+    background: $top-color;
+}
+.explain{
+    text-align: right;
 }
 @media screen and (max-width: 1279px){
     .list_left{

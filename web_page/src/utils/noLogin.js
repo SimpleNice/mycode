@@ -8,6 +8,7 @@ const noLogin =[
     'reg',
     'Aboutus',
     'recoverPwd',
-    '404'
+    '404',
+    'HomePage'
 ]
 export default noLogin
