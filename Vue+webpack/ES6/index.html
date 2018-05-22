@@ -13,7 +13,8 @@
         width: 400px;
     }
     .swiper-slide img{
-        width: 100%;
+        width: auto;
+        height: 400px;
     } 
 #target{  
     position: absolute;  
@@ -35,7 +36,7 @@
              <img src="./src/img/weimei_de_fengye-001.jpg" alt="" />
           </div>
           <div class="swiper-slide">
-                <img src="./src/img/weimei_de_fengye-014.jpg" alt="" />
+              <img src="./src/img/weimei_de_fengye-014.jpg" alt="" />
           </div>
         </div>
         <!-- Add Pagination -->
@@ -74,6 +75,7 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
         },
+        grabCursor:true,
         // Enable debugger
         debugger: true,
         on:{
@@ -83,6 +85,23 @@
             },  
         }
     });
+    $(function(){
+        var img=new Image()
+        $.each($('.swiper-slide').find('img'),function(i,n){
+            img.src=$(n).attr('src')
+            if(img.width>img.height){
+                $(n).css({
+                    "width":"400px",
+                    "height":"auto"
+                })
+            }else{
+                $(n).css({
+                    "width":"auto",
+                    "height":"400px"
+                })
+            }
+        })
+    })
 </script>
 <!-- <script src="./dist/index.js"></script>-->
 </html>
